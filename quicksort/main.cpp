@@ -1,7 +1,7 @@
 #include <iostream>
-#include "hoare.hpp"
+//#include "hoare.hpp"
 #include "quicksort.h"
-#include "lomuto.hpp"
+//#include "lomuto.hpp"
 
 using namespace std;
 
