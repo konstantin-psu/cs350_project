@@ -21,27 +21,50 @@
 %A collaboration plan that describes how your team intends to work together.  
 
 
-
-\section{Introduction}
-\textbf{Topic Choice:}\\
-Good Sorts or Convex Hull\\
-\textbf{Implementation Language:}\\
+\noindent
+\section*{Topic Choice:}
+Good Sorts\\
+Lots of options for algorithms.  More optimization options (pivot points, partitions, ...).  Good to learn what optimizations make the biggest differences.\\
+\section*{Implementation Language:}
 C/C++ with python/Bash to automate tests + profiling tools as "gprof".\\
-\textbf{Expected (Possible) Features:} 
+C is fast\\
+python for test programs, bash for running C on those test programs.
+\section*{Expected (Possible) Features:} 
 \begin{itemize}
-\item Multithreaded, GPU, single threaded.
-%TODO all tests, for consistency, should be performed on the same machine, maybe request a dedicated time for one of the linuxlab machines?
-\item Crossover point
-\item Java vs C++, i.e virtual machine vs low level.
-\item For Sorting: different ways to choose pivot - first/middle/random
+\item Find the crossover point
+\item The impact of different pivot choosing methods - first vs middle vs random.
+\item The impact of different partitioning algorithms - Lomuto vs Hoare.
 \item Verification of results (should be simple).
+\begin{itemize}
+\item language or system sort comparison
 \end{itemize}
-\textbf{Specific Goals:} \\
+\item If time allows: 
+\begin{itemize}
+\item Java vs C++, i.e virtual machine vs low level.
+\item Multithreaded vs single threaded.
+%TODO all tests, for consistency, should be performed on the same machine, maybe request a dedicated time for one of the linuxlab machines?
+\item GPU
+\end{itemize}
+\end{itemize}
+\section*{Specific Goals:} 
 \begin{enumerate}
 \item Week 1  Implementation\\
+Implement the quicksort, mergesort, and heapsort algorithms.\\
+Make note of any interesting implementation details or implemented algorithms not in the class text.
 \item Week 2  Testing \\
+Create test programs
+\begin{itemize}
+\item sorted
+\item reverse sorted
+\item randomized
+\end{itemize}
+Run tests\\
+Implement various improvements.\\
+Test those improvements and document any changes in the algorithm's behavior and how their space requirements compare.\\
+Make note of unexpected results, clever improvements, .. 
 \item Week 3  Report \\
 \end{enumerate}
-\textbf{Collaboration Plan: }\\
-Tuesdays after class, Friday afternoons, weekends?
+\section*{Collaboration Plan: }
+Along with meeting in person after class on Tuesdays and Saturday afternoons, we have also created a shared github repository for our code and are using ShareLatex for our proposal, weekly notes, and final project report.\\
+How to split up work?
 \end{document}
