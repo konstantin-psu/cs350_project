@@ -26,21 +26,25 @@
 Good Sorts\\
 Lots of options for algorithms.  More optimization options (pivot points, partitions, ...).  Good to learn what optimizations make the biggest differences.\\
 \section*{Implementation Language:}
-C/C++ with python/Bash to automate tests + profiling tools as "gprof".\\
-C is fast\\
-python for test programs, bash for running C on those test programs.
+We chose C and C++ as the languages for implementing the sorting algorithms because of their speed and low overhead.\\
+We chose python for writing our automated test programs and bash for running those tests on our sorting implementations.\\
+Profiling tools such as "gprof"\\
 \section*{Expected (Possible) Features:} 
 \begin{itemize}
-\item Find the crossover point
-\item The impact of different pivot choosing methods - first vs middle vs random.
+\item (Quicksort) Find the crossover point (for comparing to less efficient algorithms)
+\item (Quicksort) The impact of different pivot choosing methods - first vs middle vs random.
 \item The impact of different partitioning algorithms - Lomuto vs Hoare.
+\item visual representation of results
+\item Visual comparisons of each of the sorting algorithms
+\item Compare the space requirements for each algorithm
+\item bottom-up vs top-down mergesort
 \item Verification of results (should be simple).
 \begin{itemize}
 \item language or system sort comparison
 \end{itemize}
 \item If time allows: 
 \begin{itemize}
-\item Java vs C++, i.e virtual machine vs low level.
+%\item Java vs C++, i.e virtual machine vs low level.
 \item Multithreaded vs single threaded.
 %TODO all tests, for consistency, should be performed on the same machine, maybe request a dedicated time for one of the linuxlab machines?
 \item GPU
@@ -50,6 +54,9 @@ python for test programs, bash for running C on those test programs.
 \begin{enumerate}
 \item Week 1  Implementation\\
 Implement the quicksort, mergesort, and heapsort algorithms.\\
+Research improvements for mergesort and heapsort\\
+Write algorithms in our own words for the report\\
+estimate running times (summation formulas) and compare to actual times\\
 Make note of any interesting implementation details or implemented algorithms not in the class text.
 \item Week 2  Testing \\
 Create test programs
@@ -57,14 +64,24 @@ Create test programs
 \item sorted
 \item reverse sorted
 \item randomized
+\item 25\% sorted
+\item 85\% sorted
+\item gaussian distribution
+\item list of the same number
+\item test stability
+\item more if time allows
 \end{itemize}
 Run tests\\
 Implement various improvements.\\
+\begin{itemize}
+\item (Mergesort) dividing data into three sections and sorting those separately before merging
+\item (heapsort) multiple heaps
+\end{itemize}
 Test those improvements and document any changes in the algorithm's behavior and how their space requirements compare.\\
 Make note of unexpected results, clever improvements, .. 
 \item Week 3  Report \\
+gather notes, create graphs and other graphics\\
 \end{enumerate}
 \section*{Collaboration Plan: }
 Along with meeting in person after class on Tuesdays and Saturday afternoons, we have also created a shared github repository for our code and are using ShareLatex for our proposal, weekly notes, and final project report.\\
-How to split up work?
 \end{document}
