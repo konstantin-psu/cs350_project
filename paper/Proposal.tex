@@ -25,7 +25,8 @@
 \section*{Topic Choice:}
 
 Good Sorts\\
-Lots of options for algorithms.  More optimization options (pivot points, partitions, ...).  Good to learn what optimizations make the biggest differences.\\
+Lots of options for algorithms and optimizations makes this topic a good fit for this project, and studying algorithms.
+%More optimization options (pivot points, partitions, ...).  Good to learn what optimizations make the biggest differences.\\
 %expectation: different optimization are more suitable for different inputs
 \section*{Implementation Language:}
 
@@ -33,22 +34,33 @@ We chose C and C++ as the languages for implementing the sorting algorithms beca
 On the other hand C is not well suitable as a test harness, so we chose Python and Bash for test automatization.\\
 %and bash for running those tests on our sorting implementations.\\
 
-To verify correctness for gathered results, and effectively measure execution run-time, various methods will be used, such as instrumenting code, profiling, comparison of estimated against actual run-time.\\ 
+%To verify correctness for gathered results, and effectively measure execution run-time, various methods will be used, such as instrumenting code, profiling, comparison of estimated against actual run-time.\\ 
 %Profiling tools such as "gprof"\\
-\section*{Expected (Possible) Features:} 
+\section*{Expected Features:} 
 \begin{itemize}
-\item (Quicksort) Find the crossover point (for comparing to less efficient algorithms)
+\item Side by side comparison of Quicksort, Heapsort and Mergesort.
+\item Sorts stability verification.
+%Stability can be checked by using a custom struct that will contain two fields, for example, int value, int id, where id will be assigned during array initialization, and will correspond to item location within the array.
+\item Crossover point compared to less efficient algorithms, such as Selection sort and Insertion sort.
+\item Visual representation of results.
+\item Visual comparisons of each of the sorting algorithms.
+\item Comparison of space requirements for each algorithm.
 \item (Quicksort) The impact of different pivot choosing methods - first vs middle vs random.
-\item The impact of different partitioning algorithms - Lomuto vs Hoare.
-\item visual representation of results
-\item Visual comparisons of each of the sorting algorithms
-\item Compare the space requirements for each algorithm
-\item bottom-up vs top-down mergesort
-\item Verification of results (should be simple).
+\item (Quicksort) The impact of different partitioning algorithms - Lomuto vs Hoare.
+\item (Mergesort) Bottom-up vs top-down.
+\item Verification of results.
 \begin{itemize}
-\item language or system sort comparison
+\item Language or system sort comparison.
+\item Across our implementations.
+\item Against predefined inputs (unsorted and sorted version of the same input).
 \end{itemize}
-\item If time allows: 
+\item Runtime evaluation.
+\begin{itemize}
+\item Instrumenting source code.
+\item Profiling.
+\item Comparison of estimated and actual run-time.
+\end{itemize}
+\item Extra features, if time allows: 
 \begin{itemize}
 %\item Java vs C++, i.e virtual machine vs low level.
 \item Multithreaded vs single threaded.
@@ -59,21 +71,22 @@ To verify correctness for gathered results, and effectively measure execution ru
 \section*{Specific Goals:} 
 \begin{enumerate}
 \item Week 1  Implementation\\
-Implement the quicksort, mergesort, and heapsort algorithms.\\
-Research improvements for mergesort and heapsort\\
+Implement the Quicksort, Mergesort, and Heapsort algorithms.\\
+Research improvements for Mergesort and Heapsort\\
 Write algorithms in our own words for the report\\
 estimate running times (summation formulas) and compare to actual times\\
 Make note of any interesting implementation details or implemented algorithms not in the class text.
 \item Week 2  Testing \\
-Create test programs
-\begin{itemize}
+Create test programs\\
+For deeper understanding of the studied field various inputs will be used. To keep results consistent all random input will be generated using the same seed, and  for generating Gaussian distribution we will use standard library. 
+\begin{itemize} \label{350:testinputs}
 \item sorted
 \item reverse sorted
-\item randomized
+\item randomized (Uniform distribution)
+\item randomized (Gaussian/Normal distribution)
 \item 25\% sorted
 \item 85\% sorted
-\item gaussian distribution
-\item list of the same number
+\item list of the identical items (Zero distribution)
 \item test stability
 \item more if time allows
 \end{itemize}
@@ -81,7 +94,7 @@ Run tests\\
 Implement various improvements.\\
 \begin{itemize}
 \item (Mergesort) dividing data into three sections and sorting those separately before merging
-\item (heapsort) multiple heaps
+\item (Heapsort) multiple heaps
 \end{itemize}
 Test those improvements and document any changes in the algorithm's behavior and how their space requirements compare.\\
 Make note of unexpected results, clever improvements, .. 
