@@ -31,7 +31,7 @@ Lots of options for algorithms and optimizations make this topic a good fit for 
 \section*{Implementation Language:}
 
 We chose C and C++ as the languages for implementing the sorting algorithms because of their speed and low overhead, even though C/C++ is harder to implement, it will produce more accurate results. \\
-On the other hand C is not well suitable as a test harness, so we chose Python and Bash for test automatization.\\
+On the other hand C is not well suited as a test harness, so we chose Python and Bash for test automatization.\\
 %and bash for running those tests on our sorting implementations.\\
 
 %To verify correctness for gathered results, and effectively measure execution run-time, various methods will be used, such as instrumenting code, profiling, comparison of estimated against actual run-time.\\ 
@@ -39,7 +39,7 @@ On the other hand C is not well suitable as a test harness, so we chose Python a
 \section*{Expected Features:} 
 \begin{itemize}
 \item Side by side comparison of Quicksort, Heapsort and Mergesort.
-\item Sorts stability verification.
+\item Customized sorts (using structs) for stability verification.
 %Stability can be checked by using a custom struct that will contain two fields, for example, int value, int id, where id will be assigned during array initialization, and will correspond to item location within the array.
 \item Crossover point compared to less efficient algorithms, such as Selection sort and Insertion sort.
 \item Visual representation of results.
@@ -50,9 +50,9 @@ On the other hand C is not well suitable as a test harness, so we chose Python a
 \item (Mergesort) Bottom-up vs top-down.
 \item Verification of results.
 \begin{itemize}
-\item Language or system sort comparison.
-\item Across our implementations.
-\item Against predefined inputs (unsorted and sorted version of the same input).
+\item Comparing to language or system sort comparison.
+\item Compare across our implementations.
+\item Compare against predefined inputs (unsorted and sorted version of the same input).
 \end{itemize}
 \pagebreak
 \item Runtime evaluation.
@@ -71,15 +71,20 @@ On the other hand C is not well suitable as a test harness, so we chose Python a
 \end{itemize}
 \section*{Specific Goals:} 
 \begin{enumerate}
-\item Week 1  Implementation\\
-Implement the Quicksort, Mergesort, and Heapsort algorithms.\\
-Research improvements for Mergesort and Heapsort\\
-Write algorithms in our own words for the report\\
-estimate running times (summation formulas) and compare to actual times\\
-Make note of any interesting implementation details or implemented algorithms not in the class text.
-\item Week 2  Testing \\
-Create test programs\\
-For deeper understanding of the studied field various inputs will be used. To keep results consistent all random input will be generated using the same seed, and  for generating Gaussian distribution we will use standard library. 
+\item Week 1  Implementation
+\begin{itemize}
+\item Implement the Quicksort, Mergesort, and Heapsort algorithms.
+\item Research improvements to implement in algorithms, especially for Mergesort and Heapsort since the class textbook has given fewer ideas regarding those algorithms.
+\item Write algorithms in our own words for the report.
+\item Mathematically estimate running times for each of the algorithms and compare to actual times.
+\item Make note of any interesting implementation details or implemented algorithms not in the class textbook.
+\end{itemize}
+\item Week 2  Testing 
+\begin{itemize}
+\item Create test programs
+\begin{itemize}
+\item For deeper understanding of the studied field various inputs will be used. To keep results consistent all random input will be generated using the same seed, and  for generating Gaussian distribution we will use standard library. 
+\item Test Inputs (usually lists of integers or floating-point numbers): 
 \begin{itemize} \label{350:testinputs}
 \item sorted
 \item reverse sorted
@@ -88,20 +93,29 @@ For deeper understanding of the studied field various inputs will be used. To ke
 \item 25\% sorted
 \item 85\% sorted
 \item list of the identical items (Zero distribution)
-\item test stability
-\item more if time allows
+\item test stability using customized sorting definition for list of inputs
+\item more tests if time allows
 \end{itemize}
-Run tests\\
-Implement various improvements.\\
+\end{itemize}
+\item Implement various improvements, including: 
 \begin{itemize}
-\item (Mergesort) dividing data into three sections and sorting those separately before merging
-\item (Heapsort) multiple heaps
+\item (Mergesort) dividing data into three (or more) sections and sorting those separately before merging
+\item (Heapsort) dividing into multiple heaps
 \end{itemize}
-Test those improvements and document any changes in the algorithm's behavior and how their space requirements compare.\\
-Make note of unexpected results, clever improvements, .. 
-\item Week 3  Report \\
-gather notes, create graphs and other graphics\\
+\item Test those improvements and document any changes in the algorithm's behavior. 
+\item Document how the algorithms' space requirements compare.
+\item Make note of unexpected results or improvements that we find to be especially creative or interesting.
+\end{itemize}
+\item Week 3  Report 
+\begin{itemize}
+\item Collect materials for report:
+\begin{itemize}
+\item Gather together the notes and documentation we have created over the course of the project.
+\item Design graphs and other graphics to help display our results.
+\end{itemize}
+\item Collaboratively write report (using shared documentation system) and take turns editing drafts.
+\end{itemize}
 \end{enumerate}
 \section*{Collaboration Plan: }
-Along with meeting in person after class on Tuesdays and Saturday afternoons, we have also created a shared github repository for our code and are using ShareLatex for our proposal, weekly notes, and final project report.\\
+Along with meeting in person after class on Tuesdays and on Saturday afternoons, we have also created a shared github repository for our code and are using ShareLatex for our proposal, weekly notes, and final project report.  We will share the responsibility of writing code, analyzing algorithms, and writing the final report.
 \end{document}
