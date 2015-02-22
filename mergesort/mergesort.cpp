@@ -36,7 +36,6 @@ template <class T>
 void mergesort<T>::sort() {
     int* sortedArray = new int[length];
     sort(0, length, sortedArray);
-    print();
 }
 
 
@@ -86,5 +85,6 @@ void mergesort<T>::print() {
 
 
 template class mergesort<int>;
+template class mergesort<float>;
 
 
