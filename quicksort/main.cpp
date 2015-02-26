@@ -10,5 +10,6 @@ int main() {
     quicksort<int> qsort(1500000000);
     qsort.sort();
     //quicksort<int> qsort = quicksort<int>(10);
+    cout << "Goodbye" << endl;
     return 0;
 }
