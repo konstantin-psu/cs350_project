@@ -14,7 +14,22 @@ from numpy import sort
 from numpy import append
 from numpy import concatenate
 from numpy import around
+#import cProfile
 
+
+#def do_cprofile(func):
+#    def profiled_func(*args, **kwargs):
+#        profile = cProfile.Profile()
+#        try:
+#            profile.enable()
+#            result = func(*args, **kwargs)
+#            profile.disable()
+#            return result
+#        finally:
+#            profile.print_stats()
+#    return profiled_func
+#
+#@do_cprofile
 class generator:
     def __init__(self, seed=10, maximum = 50000, median = 0):
        self.maximum = maximum
