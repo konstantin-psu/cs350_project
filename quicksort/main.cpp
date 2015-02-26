@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
     cout << "Hello, World!" << endl;
-    quicksort<int> qsort(1000000000);
+    quicksort<int> qsort(1500000000);
     qsort.sort();
     //quicksort<int> qsort = quicksort<int>(10);
     return 0;

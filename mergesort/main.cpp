@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 
     cout << "Hello, World!" << endl;
-    mergesort<int> mSort(100);
+    mergesort<int> mSort(2000000000);
     mSort.sort();
 
     return 0;

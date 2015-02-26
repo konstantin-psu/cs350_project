@@ -42,6 +42,7 @@ template <class T>
 quicksort<T>::~quicksort() {
     if (array != NULL) {
         delete [] array;
+        array = NULL;
     }
 }
 
