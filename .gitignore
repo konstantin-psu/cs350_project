@@ -20,3 +20,4 @@ bibliography.bib
 Report.bbl
 Report.blg
 Report.toc
+*.pyc
