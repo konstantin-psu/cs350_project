@@ -1,9 +1,9 @@
-import random
+import random, cProfile
 
 def mergeSort(list):
     #print("Splitting ", list)
     if len(list) > 1:
-        mid = len(list)/2
+        mid = int(len(list)/2)
         left = list[:mid]
         right = list[mid:]
 
@@ -36,7 +36,7 @@ def mergeSort(list):
 
 
 
-list = random.sample(xrange(100000000), 100000000)
-mergeSort(list)
+list = random.sample(range(100), 100)
+cProfile.run('mergeSort(list)')
 #print list
-print "Goodbye"
+#print "Goodbye"

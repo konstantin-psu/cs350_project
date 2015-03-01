@@ -1,7 +1,5 @@
-import random
-"""
+import random, cProfile
 
-"""
 def heapsort( list ):
     length = len( list ) - 1
     for i in range ( (length / 2), -1, -1 ):
@@ -38,7 +36,7 @@ def swap( A, x, y ):
     A[y] = tmp
 
 
-list = random.sample(xrange(100), 10)
-heapsort(list)
-print list
-print "Goodbye"
+list = random.sample(xrange(10000000), 10000000)
+cProfile.run('heapsort(list)')
+#heapsort(list)
+#print list
