@@ -1,42 +1,54 @@
-import random
+import random, cProfile, argparse, time
+from numpy import copy
 
-def mergeSort(list):
-    #print("Splitting ", list)
-    if len(list) > 1:
-        mid = len(list)/2
-        left = list[:mid]
-        right = list[mid:]
 
-        mergeSort(left)
-        mergeSort(right)
+def merge(A, B, start, middle, end):
+    B = copy(A)
 
-        i = 0
-        j = 0
-        k = 0
-        while i < len(left) and j < len(right):
-            if left[i] < right[j]:
-                list[k] = left[i]
-                i += 1
+    i = start
+    j = middle + 1
 
-            else:
-                list[k] = right[j]
-                j += 1
-            k += 1
-
-        while i < len(left):
-            list[k] = left[i]
-            i += 1
-            k += 1
-
-        while j < len(right):
-            list[k] = right[j]
+    for k in range(start, end + 1):
+        if i > middle:
+            A[k] = B[j]
             j += 1
-            k += 1
-        #print ("Merging ", list)
+
+        elif j > end:
+            A[k] = B[i]
+            i += 1
+
+        elif B[j] < B[i]:
+            A[k] = B[j]
+            j += 1
+
+        else:
+            A[k] = B[i]
+            i += 1
 
 
 
-list = random.sample(xrange(100000000), 100000000)
-mergeSort(list)
-#print list
-print "Goodbye"
+def mergesort(A, B, start, end):
+    if (end <= start):
+        return
+    middle = int(start + (end - start) / 2)
+    mergesort(A, B, start, middle)
+    mergesort(A, B, middle + 1, end)
+    merge(A, B, start, middle, end)
+
+
+
+parser = argparse.ArgumentParser(description='Get input size')
+parser.add_argument('-s', dest='inputSize')
+
+args = parser.parse_args()
+size = int(args.inputSize)
+
+list = random.sample(range(size), size)
+start = 0
+end = len(list)
+B = [None] * end
+
+mergesort(list, B, start, end - 1)
+print(list)
+
+#cProfile.run('mergesort(list, B, start, end - 1)')
