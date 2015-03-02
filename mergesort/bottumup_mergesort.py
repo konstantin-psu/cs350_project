@@ -1,4 +1,4 @@
-import random, cProfile, time, scipy
+import random, cProfile, time, scipy, argparse
 from numpy import copy
 
 def bottomupmerge(A, B, start, middle, end):
@@ -42,8 +42,13 @@ def bottomupsort(A):
         size = size + size
 
 
+parser = argparse.ArgumentParser(description='Get input size')
+parser.add_argument('-s', dest='inputSize')
 
-list = random.sample(range(100), 10)
-#cProfile.run('bottomupsort(list)')
-bottomupsort(list)
-print (list)
+args = parser.parse_args()
+size = int(args.inputSize)
+
+list = random.sample(range(size), size)
+cProfile.run('bottomupsort(list)')
+#bottomupsort(list)
+#print (list)

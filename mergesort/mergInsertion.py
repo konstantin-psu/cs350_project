@@ -1,4 +1,4 @@
-import random, cProfile
+import random, cProfile, argparse
 from numpy import copy
 
 import random, cProfile, time, scipy
@@ -31,7 +31,7 @@ def merge(A, B, start, middle, end):
 
 
 def insertionsort(list):
-    print("insertion")
+    #print("insertion")
     for i in range(1, len(list)):
         curr = list[i]
         position = i
@@ -56,8 +56,13 @@ def mergesort(A, B, start, end):
     merge(A, B, start, middle, end)
 
 
+parser = argparse.ArgumentParser(description='Get input size')
+parser.add_argument('-s', dest='inputSize')
 
-list = random.sample(range(100), 12)
+args = parser.parse_args()
+size = int(args.inputSize)
+
+list = random.sample(range(size), size)
 start = 0
 end = len(list)
 B = [None] * end
@@ -65,4 +70,4 @@ B = [None] * end
 mergesort(list, B, start, end - 1)
 print(list)
 
-#cProfile.run('mergeSort(list)')
+#cProfile.run('mergesort(list, B, start, end - 1)')
