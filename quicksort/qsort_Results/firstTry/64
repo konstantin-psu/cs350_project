@@ -1,0 +1,55 @@
+name:                 qsortDualPivotuniform1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.617002559825778e-06
+total time:           4.617002559825778e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004617003 seconds
+name:                 qsortDualPivotuniform1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.565008566714823e-06
+total time:           4.565008566714823e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004565009 seconds
+name:                 qsortDualPivotuniform1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.4639891711995006e-06
+total time:           4.4639891711995006e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004463989 seconds
+name:                 qsortDualPivotuniform1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.536006599664688e-06
+total time:           4.536006599664688e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004536007 seconds
+name:                 qsortDualPivotuniform1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.159999662078917e-06
+total time:           4.159999662078917e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004160000 seconds

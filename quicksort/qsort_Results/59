@@ -1,0 +1,55 @@
+name:                 qsortThreeWayuniform1000
+basic operations:     10750
+size:                 1000
+partition operations: 1921
+total split time:     0.001395216006130795
+total time:           0.005083850000119128
+total partition:      0.003688633993988333
+total space:          10750
+number of duplicates: 0
+actual length:        1000
+elapsed time = 0.005083850000 seconds
+name:                 qsortThreeWayuniform1000
+basic operations:     10750
+size:                 1000
+partition operations: 1921
+total split time:     0.0015660469989597914
+total time:           0.005302290999679826
+total partition:      0.003736244000720035
+total space:          10750
+number of duplicates: 0
+actual length:        1000
+elapsed time = 0.005302291000 seconds
+name:                 qsortThreeWayuniform1000
+basic operations:     10750
+size:                 1000
+partition operations: 1921
+total split time:     0.001402398004756833
+total time:           0.005101862999254081
+total partition:      0.003699464994497248
+total space:          10750
+number of duplicates: 0
+actual length:        1000
+elapsed time = 0.005101862999 seconds
+name:                 qsortThreeWayuniform1000
+basic operations:     10750
+size:                 1000
+partition operations: 1921
+total split time:     0.0017356789894620306
+total time:           0.006103667000388668
+total partition:      0.004367988010926638
+total space:          10750
+number of duplicates: 0
+actual length:        1000
+elapsed time = 0.006103667000 seconds
+name:                 qsortThreeWayuniform1000
+basic operations:     10750
+size:                 1000
+partition operations: 1921
+total split time:     0.0014046370069991099
+total time:           0.005580341000495537
+total partition:      0.004175703993496427
+total space:          10750
+number of duplicates: 0
+actual length:        1000
+elapsed time = 0.005580341000 seconds

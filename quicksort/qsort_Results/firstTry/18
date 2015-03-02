@@ -1,0 +1,55 @@
+name:                 qsortDualPivotgauss100
+basic operations:     636
+size:                 100
+partition operations: 121
+total split time:     0.00013639194366987795
+total time:           0.00034952699206769466
+total partition:      0.00021313504839781672
+total space:          537
+number of duplicates: 0
+actual length:        100
+elapsed time = 0.000349526992 seconds
+name:                 qsortDualPivotgauss100
+basic operations:     636
+size:                 100
+partition operations: 121
+total split time:     0.00012618600158020854
+total time:           0.0003323559940326959
+total partition:      0.00020616999245248735
+total space:          537
+number of duplicates: 0
+actual length:        100
+elapsed time = 0.000332355994 seconds
+name:                 qsortDualPivotgauss100
+basic operations:     636
+size:                 100
+partition operations: 121
+total split time:     0.00012540702300611883
+total time:           0.00032211899815592915
+total partition:      0.00019671197514981031
+total space:          537
+number of duplicates: 0
+actual length:        100
+elapsed time = 0.000322118998 seconds
+name:                 qsortDualPivotgauss100
+basic operations:     636
+size:                 100
+partition operations: 121
+total split time:     0.000133231034851633
+total time:           0.00035326401120983064
+total partition:      0.00022003297635819763
+total space:          537
+number of duplicates: 0
+actual length:        100
+elapsed time = 0.000353264011 seconds
+name:                 qsortDualPivotgauss100
+basic operations:     636
+size:                 100
+partition operations: 121
+total split time:     0.00012529792729765177
+total time:           0.0003209729911759496
+total partition:      0.0001956750638782978
+total space:          537
+number of duplicates: 0
+actual length:        100
+elapsed time = 0.000320972991 seconds

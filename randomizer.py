@@ -32,31 +32,40 @@ from numpy import around
 #@do_cprofile
 SEED = 10
 class generator:
-    def __init__(self, seed=10, maximum = 50000, median = 0):
+    def __init__(self, seed=10, maximum = 50000, median = 0, asInt = False):
        self.maximum = maximum
        self.median = median
        self.seed = seed
+       self.asInt = asInt
        SEED = seed
        random.seed(seed)
 
-    def sorted(self, size):
-        pass
     def gauss(self, size):
         s = random.normal(self.median, self.maximum, size)
+        if (self.asInt):
+            s = s.astype(int)
         return s
     def uniform(self, size):
         s = random.uniform(high = self.maximum, size=size)
+        if (self.asInt):
+            s = s.astype(int)
         return s
     def sorted(self, size):
         s = self.uniform(size=size)
         s = sort(s)
+        if (self.asInt):
+            s = s.astype(int)
         return s
     def reverseSorted(self, size):
         s = self.sorted(size)
         s = s[::-1]
+        if (self.asInt):
+            s = s.astype(int)
         return s
     def identical(self, size):
         s = random.uniform(low=self.maximum, high = self.maximum, size=size)
+        if (self.asInt):
+            s = s.astype(int)
         return s
     def s25(self, size):
         if (size < 4):
@@ -65,6 +74,8 @@ class generator:
             first = int(around(size * 0.25))
         last = size - first
         s = concatenate([sort(random.uniform(high = self.maximum, size=first)) , random.uniform(high = self.maximum, size=last)])
+        if (self.asInt):
+            s = s.astype(int)
         return s
     def s85(self, size):
         if (size < 4):
@@ -73,6 +84,8 @@ class generator:
             last = int(around(size * 0.25))
         first = size - last
         s = concatenate([sort(random.uniform(high = self.maximum, size=first)) , random.uniform(high = self.maximum, size=last)])
+        if (self.asInt):
+            s = s.astype(int)
         return s
 
 class rnd:

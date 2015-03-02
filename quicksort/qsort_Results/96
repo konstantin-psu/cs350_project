@@ -1,0 +1,55 @@
+name:                 qsortBasicsorted1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.073000127391424e-06
+total time:           4.073000127391424e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004073000 seconds
+name:                 qsortBasicsorted1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.34300000051735e-06
+total time:           4.34300000051735e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004343000 seconds
+name:                 qsortBasicsorted1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.991000085079577e-06
+total time:           3.991000085079577e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000003991000 seconds
+name:                 qsortBasicsorted1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.97100029658759e-06
+total time:           3.97100029658759e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000003971000 seconds
+name:                 qsortBasicsorted1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.633000233094208e-06
+total time:           3.633000233094208e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000003633000 seconds

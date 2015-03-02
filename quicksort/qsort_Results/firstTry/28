@@ -1,0 +1,55 @@
+name:                 qsortBasicHgauss10000
+basic operations:     135024
+size:                 10000
+partition operations: 13501
+total split time:     0.017479062124039046
+total time:           0.08863499001017772
+total partition:      0.07115592788613867
+total space:          170333
+number of duplicates: 0
+actual length:        11986
+elapsed time = 0.088634990010 seconds
+name:                 qsortBasicHgauss10000
+basic operations:     135024
+size:                 10000
+partition operations: 13501
+total split time:     0.017639008947298862
+total time:           0.08842415700200945
+total partition:      0.07078514805471059
+total space:          170333
+number of duplicates: 0
+actual length:        11986
+elapsed time = 0.088424157002 seconds
+name:                 qsortBasicHgauss10000
+basic operations:     135024
+size:                 10000
+partition operations: 13501
+total split time:     0.017334828211460263
+total time:           0.08842789800837636
+total partition:      0.0710930697969161
+total space:          170333
+number of duplicates: 0
+actual length:        11986
+elapsed time = 0.088427898008 seconds
+name:                 qsortBasicHgauss10000
+basic operations:     135024
+size:                 10000
+partition operations: 13501
+total split time:     0.017424415942514315
+total time:           0.08904993900796399
+total partition:      0.07162552306544967
+total space:          170333
+number of duplicates: 0
+actual length:        11986
+elapsed time = 0.089049939008 seconds
+name:                 qsortBasicHgauss10000
+basic operations:     135024
+size:                 10000
+partition operations: 13501
+total split time:     0.01769350997346919
+total time:           0.088994265999645
+total partition:      0.0713007560261758
+total space:          170333
+number of duplicates: 0
+actual length:        11986
+elapsed time = 0.088994266000 seconds

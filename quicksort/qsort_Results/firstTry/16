@@ -1,0 +1,55 @@
+name:                 qsortDualPivotgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.296001861803234e-06
+total time:           4.296001861803234e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004296002 seconds
+name:                 qsortDualPivotgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.526998964138329e-06
+total time:           4.526998964138329e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004526999 seconds
+name:                 qsortDualPivotgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.3900072341784835e-06
+total time:           4.3900072341784835e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004390007 seconds
+name:                 qsortDualPivotgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.451008862815797e-06
+total time:           4.451008862815797e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004451009 seconds
+name:                 qsortDualPivotgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     4.183995770290494e-06
+total time:           4.183995770290494e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+elapsed time = 0.000004183996 seconds
