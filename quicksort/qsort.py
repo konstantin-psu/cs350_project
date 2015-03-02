@@ -6,13 +6,14 @@ from numpy import copy
 from numpy import sort
 import time
 import argparse
-sys.setrecursionlimit(50000)
+#sys.setrecursionlimit(50000)
 parser = argparse.ArgumentParser(description='Get input size')
 parser.add_argument('-t', dest = 'type', type=int)
 parser.add_argument('-s', dest = 'inputSize', type=int)
 parser.add_argument('-pt', dest = 'partType', type=int)
 parser.add_argument('-c', dest = 'ceiling', type=int)
-parser.add_argument('-i', dest = 'asInt')
+parser.add_argument('-i', dest = 'asInt', type=int)
+parser.add_argument('-piv', dest = 'Pivot', type=int)
 #srt = qsort(type=0, partType = 0, size = size, ceiling = 2000000, asInt = isInt)
 
 args = parser.parse_args()
@@ -50,6 +51,21 @@ import cProfile
 #
 #
 #@do_cprofile
+
+basic = 0
+threeWay = 1
+dualPivot = 2
+basicH = 3
+threeWayH = 4
+dualPivotH = 5
+
+Gauss = 0
+Uniform = 1
+Sorted = 2
+Reverse = 3
+Identical = 4
+S25 = 5
+S85 = 6
 class qsort:
     """
         Global variables used to output information:
@@ -113,8 +129,16 @@ class qsort:
     size = 1
     duplicates = 0
     seed = 10
+    pivotType = False
 
-    def __init__(self, rtype, partType, size, ceiling, asInt, pivotType = 0):
+    def pivot(self, arr, first):
+        if (self.pivotType):
+            return arr[self.generator.randomPivot(len(arr))]
+        if (first):
+            return arr[0]
+        return arr[len(arr) - 1]
+    def __init__(self, rtype, partType, size, ceiling, asInt, pivotType = False):
+        self.pivotType = pivotType
         self.size = size
         self.TYPE = rtype
         self.partType = partType
@@ -155,6 +179,10 @@ class qsort:
         self.toSort = []
 
     def dump(self):
+        pstr = "first/last"
+        if (self.pivotType):
+            pstr = "random"
+
         print("name:                 " + self.name)
         print("basic operations:     " + str(self.BASIC))
         print("size:                 " + str(self.size))
@@ -165,6 +193,7 @@ class qsort:
         print("total space:          " + str(self.TOTALSPACE))
         print("number of duplicates: " + str(self.dpl))
         print("actual length:        " + str(len(self.toSort)))
+        print("pivot type   :        " + pstr)
         print("elapsed time = {:.12f} seconds".format(self.TOTALRTIME))
 
     def quickSortThreeWay(self, arr):
@@ -176,7 +205,7 @@ class qsort:
             return arr
         else:
             start = time.perf_counter()
-            pivot = arr[0]
+            pivot = self.pivot(arr, True)
             for i in arr:
                 self.BASIC += 1
                 if i < pivot:
@@ -251,7 +280,7 @@ class qsort:
             return arr
         else:
             start = time.perf_counter()
-            pivot = arr[0]
+            pivot = self.pivot(arr, True)
             for i in arr:
                 if i < pivot:
                     self.BASIC += 1
@@ -552,10 +581,12 @@ class qsort:
 #parser.add_argument('-c', dest = 'ceiling')
 #parser.add_argument('-i', dest = 'asInt')
 def run():
-    rtype = 5
-    partType = 2
-    size = 100
+    rtype = basic
+    partType = Reverse
+    size = 10000
     ceiling = 10000
+    # pivotType = True
+    pivotType = False
     isInt = True
     if args.inputSize is not None:
         size = args.inputSize
@@ -566,10 +597,13 @@ def run():
     if args.ceiling is not None:
         ceiling = args.ceiling
     if args.asInt is not None:
-        isInt = args.asInt
+        isInt = bool(args.asInt)
+    if args.Pivot is not None:
+        pivotType = bool(args.Pivot)
     # size = 10000000
 
-    srt = qsort(rtype=rtype, partType = partType, size = size, ceiling = ceiling, asInt = isInt)
+    srt = qsort(rtype=rtype, partType = partType, size = size, ceiling = ceiling, asInt = isInt, pivotType= pivotType)
+    #r = randomizer.generator()
     # print("elapsed time = {:.12f} seconds".format(elapsed))
     # print compare(arr1, done)
     # arr1 = sort(arr1)

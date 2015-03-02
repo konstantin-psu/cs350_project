@@ -36,6 +36,8 @@ ptm=7
 i=1
 j=0
 n=0
+pivot=1
+asInt=1
 while [ $pt -lt $ptm ]
 do
     while [ $t -lt $tm ]
@@ -45,7 +47,7 @@ do
             while [ $j -lt $experiments ]
             do
                # echo "python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -i 'True'"
-                python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -i 'True' >>$bn$res/$n
+                python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -i 'True' -piv >>$bn$res/$n
                 j=$(($j+1))
             done
             j=0
