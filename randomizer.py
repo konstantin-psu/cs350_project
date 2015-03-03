@@ -32,6 +32,13 @@ from numpy import around
 #@do_cprofile
 SEED = 10
 class generator:
+    Gauss = 0
+    Uniform = 1
+    Sorted = 2
+    Reverse = 3
+    Identical = 4
+    S25 = 5
+    S85 = 6
     def __init__(self, seed=10, maximum = 50000, median = 0, asInt = False):
        self.maximum = maximum
        self.median = median
@@ -39,6 +46,22 @@ class generator:
        self.asInt = asInt
        SEED = seed
        random.seed(seed)
+
+    def gen(self, t, size):
+        if t == self.Gauss:
+            return self.gauss(size=size)
+        elif t == self.Uniform:
+            return self.uniform(size=size)
+        elif t == self.Sorted:
+            return self.sorted(size=size)
+        elif t == self.Reverse:
+            return self.reverseSorted(size=size)
+        elif t == self.Identical:
+            return self.identical(size=size)
+        elif t == self.S25:
+            return self.s25(size=size)
+        elif t == self.S85:
+            return self.s85(size=size)
 
     def gauss(self, size):
         s = random.normal(self.median, self.maximum, size)
@@ -87,6 +110,8 @@ class generator:
         if (self.asInt):
             s = s.astype(int)
         return s
+    def randomPivot(self, max):
+        return random.randint(max)
 
 class rnd:
     def normal(self, max):

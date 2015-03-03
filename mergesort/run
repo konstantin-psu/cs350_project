@@ -19,7 +19,7 @@
 #parser.add_argument('-pt', dest = 'partType')
 #parser.add_argument('-c', dest = 'ceiling')
 #parser.add_argument('-i', dest = 'asInt')
-SCRIPTNAME='qsort.py'
+SCRIPTNAME='mergesort.py'
 
 bn=`basename $SCRIPTNAME .py`
 #MAX=$2
@@ -30,7 +30,7 @@ if [ ! -d "$bn$res" ]; then
     mkdir "$bn$res"
 fi
 t=0
-tm=6
+tm=1
 pt=0
 ptm=7
 i=1
@@ -47,7 +47,7 @@ do
             while [ $j -lt $experiments ]
             do
                # echo "python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -i 'True'"
-                python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -i $asInt -piv $pivot >>$bn$res/$n
+                python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000000 -i $asInt -piv $pivot >>$bn$res/$n
                 j=$(($j+1))
             done
             j=0

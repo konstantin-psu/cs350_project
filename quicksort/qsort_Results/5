@@ -53,3 +53,68 @@ total space:          1399550
 number of duplicates: 0
 actual length:        5781
 elapsed time = 0.346190478000 seconds
+False
+False
+False
+False
+False
+name:                 qsortBasicgauss100000
+basic operations:     1505041
+size:                 100000
+partition operations: 10915
+total split time:     0.017488869998487644
+total time:           0.3946333029998641
+total partition:      0.37714443300137646
+total space:          1505040
+number of duplicates: 0
+actual length:        5781
+pivot type   :        random
+elapsed time = 0.394633303000 seconds
+name:                 qsortBasicgauss100000
+basic operations:     1505041
+size:                 100000
+partition operations: 10915
+total split time:     0.01754688499659096
+total time:           0.37795530599987615
+total partition:      0.3604084210032852
+total space:          1505040
+number of duplicates: 0
+actual length:        5781
+pivot type   :        random
+elapsed time = 0.377955306000 seconds
+name:                 qsortBasicgauss100000
+basic operations:     1505041
+size:                 100000
+partition operations: 10915
+total split time:     0.017231416996310145
+total time:           0.3627860330002477
+total partition:      0.34555461600393755
+total space:          1505040
+number of duplicates: 0
+actual length:        5781
+pivot type   :        random
+elapsed time = 0.362786033000 seconds
+name:                 qsortBasicgauss100000
+basic operations:     1505041
+size:                 100000
+partition operations: 10915
+total split time:     0.017818293003983854
+total time:           0.3659462860000531
+total partition:      0.3481279929960692
+total space:          1505040
+number of duplicates: 0
+actual length:        5781
+pivot type   :        random
+elapsed time = 0.365946286000 seconds
+name:                 qsortBasicgauss100000
+basic operations:     1505041
+size:                 100000
+partition operations: 10915
+total split time:     0.01783189599564139
+total time:           0.3645229919998201
+total partition:      0.3466910960041787
+total space:          1505040
+number of duplicates: 0
+actual length:        5781
+pivot type   :        random
+elapsed time = 0.364522992000 seconds

@@ -53,3 +53,74 @@ total space:          759
 number of duplicates: 0
 actual length:        99
 elapsed time = 0.000351068000 seconds
+False
+False
+False
+False
+False
+False
+<class 'str'>
+False
+<class 'str'>
+False
+<class 'str'>
+name:                 qsortBasicgauss100
+basic operations:     799
+size:                 100
+partition operations: 133
+total split time:     0.00014356000156112714
+total time:           0.00041114399982689065
+total partition:      0.0002675839982657635
+total space:          798
+number of duplicates: 0
+actual length:        99
+pivot type   :        random
+elapsed time = 0.000411144000 seconds
+name:                 qsortBasicgauss100
+basic operations:     799
+size:                 100
+partition operations: 133
+total split time:     0.00013681399923370918
+total time:           0.00038818099983473076
+total partition:      0.0002513670006010216
+total space:          798
+number of duplicates: 0
+actual length:        99
+pivot type   :        random
+elapsed time = 0.000388181000 seconds
+name:                 qsortBasicgauss100
+basic operations:     799
+size:                 100
+partition operations: 133
+total split time:     0.0001363450023745827
+total time:           0.00039371200000459794
+total partition:      0.00025736699763001525
+total space:          798
+number of duplicates: 0
+actual length:        99
+pivot type   :        random
+elapsed time = 0.000393712000 seconds
+name:                 qsortBasicgauss100
+basic operations:     799
+size:                 100
+partition operations: 133
+total split time:     0.00014611999677072163
+total time:           0.0004054249998262094
+total partition:      0.00025930500305548776
+total space:          798
+number of duplicates: 0
+actual length:        99
+pivot type   :        random
+elapsed time = 0.000405425000 seconds
+name:                 qsortBasicgauss100
+basic operations:     799
+size:                 100
+partition operations: 133
+total split time:     0.00014256400208978448
+total time:           0.0003909939996447065
+total partition:      0.000248429997554922
+total space:          798
+number of duplicates: 0
+actual length:        99
+pivot type   :        random
+elapsed time = 0.000390994000 seconds

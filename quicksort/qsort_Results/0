@@ -53,3 +53,78 @@ total space:          0
 number of duplicates: 0
 actual length:        1
 elapsed time = 0.000003756000 seconds
+False
+False
+False
+False
+False
+False
+<class 'str'>
+False
+<class 'str'>
+False
+<class 'str'>
+False
+<class 'str'>
+False
+<class 'str'>
+name:                 qsortBasicgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.7190002331044525e-06
+total time:           3.7190002331044525e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+pivot type   :        random
+elapsed time = 0.000003719000 seconds
+name:                 qsortBasicgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.55200018020696e-06
+total time:           3.55200018020696e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+pivot type   :        random
+elapsed time = 0.000003552000 seconds
+name:                 qsortBasicgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.827000000455882e-06
+total time:           3.827000000455882e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+pivot type   :        random
+elapsed time = 0.000003827000 seconds
+name:                 qsortBasicgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.7610002436849754e-06
+total time:           3.7610002436849754e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+pivot type   :        random
+elapsed time = 0.000003761000 seconds
+name:                 qsortBasicgauss1
+basic operations:     1
+size:                 1
+partition operations: 1
+total split time:     3.6249998629500624e-06
+total time:           3.6249998629500624e-06
+total partition:      0
+total space:          0
+number of duplicates: 0
+actual length:        1
+pivot type   :        random
+elapsed time = 0.000003625000 seconds
