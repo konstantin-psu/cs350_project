@@ -33,32 +33,30 @@ t=0
 tm=2
 pt=0
 ptm=7
-i=1
-j=0
-n=0
-pivot=1
-asInt=1
+currSize=1
+currExperiment=0
+pivot=1 #will evaluate to true if 1 or to false if 0
+asInt=1 #will evaluate to true if 1 to false if 0
 while [ $pt -lt $ptm ]
 do
     while [ $t -lt $tm ]
     do
-        while [ $i -lt $MAX ]
+        while [ $currSize -lt $MAX ]
         do
-            while [ $j -lt $experiments ]
+            while [ $currExperiment -lt $experiments ]
             do
-               # echo "python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -i 'True'"
-                python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -i $asInt -piv $pivot
-                j=$(($j+1))
+               # echo "python3 $SCRIPTNAME -t $t -s $i -pt $pt -c 1000 -currSize 'True'"
+                python3 $SCRIPTNAME -t $t -s $currSize -pt $pt -c 1000 -i $asInt -piv $pivot
+                currExperiment=$(($currExperiment+1))
             done
-            j=0
-            if [ $i -ge 1000000 ]; then
-                i=$(($i+1000000))
+            currExperiment=0
+            if [ $currSize -ge 1000000 ]; then
+                currSize=$(($currSize+1000000))
             else
-                i=$(($i*10))
+                currSize=$(($currSize*10))
             fi
-            n=$(($n+1))
         done
-        i=1
+        currSize=1
         t=$(($t+1))
     done
     t=0
