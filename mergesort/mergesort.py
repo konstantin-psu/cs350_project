@@ -39,7 +39,7 @@ class msort(testbase):
         end = time.perf_counter()
         self.TOTALRTIME = end - start
         self.SPLITRTIME += self.TOTALRTIME - self.SORTHELPERRTIME
-        pprint(self.toSort)
+        # pprint(self.toSort)
         self.setinfo()
         pprint(self.info)
         self.dump()
@@ -109,6 +109,7 @@ class msort(testbase):
             j += 1
         end  = time.perf_counter()
         self.SORTHELPERRTIME += end - begin
+        self.TOTALSPACE += len(C)
         return C
 
     def mergesort1(self, A):
@@ -126,7 +127,7 @@ class msort(testbase):
 
 def run():
     partType = Uniform
-    size = 100
+    size = 1000000
     ceiling = 100
     # pivotType = True
     pivotType = False
