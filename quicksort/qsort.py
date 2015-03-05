@@ -52,16 +52,23 @@ class qsort(testbase):
 
 
     def __init__(self, rtype, partType, size, ceiling, asInt, pivotType = False):
+        super().__init__()
         self.pivotType = pivotType
         self.size = size
         self.TYPE = rtype
+        self.INT = asInt
         self.partType = partType
         self.generator = randomizer.generator(self.seed, ceiling, median = 0, asInt = asInt)
         self.toSort = self.generator.gen(self.partType, self.size)
-        self.name = self.names[rtype]+self.ptypes[self.partType]
+        self.PARTITIONTYPE = self.ptypes[self.partType]
+        self.name = self.names[rtype]
+        self.filename = self.name
+        self.CEILING = ceiling
         #self.dupl(self.toSort)
         self.sort()
         self.SPLITRTIME = self.TOTALRTIME - self.SORTHELPERRTIME
+        self.setinfo()
+        # self.print()
         self.dump()
         self.reset()
 
@@ -74,13 +81,17 @@ class qsort(testbase):
         end = time.perf_counter()
         self.TOTALRTIME = end - start
 
-    def dump(self):
+    def setinfo(self):
+        super().setinfo()
         pstr = "first/last"
         if (self.pivotType):
             pstr = "random"
+        self.info['pivot type']=pstr
 
-        super().dump()
-        print("pivot type   :        " + pstr)
+    def dump(self):
+        with open(self.filename, 'a') as out:
+            out.write(json.dumps(self.info, sort_keys = True, indent=4, separators=(',', ':')))
+            out.write("\n")
 
     #IMPLEMENTATION #######################################################
     def quickSortThreeWay(self, arr):
@@ -164,7 +175,7 @@ class qsort(testbase):
 def run():
     rtype = threeWay
     partType = Uniform
-    size = 100000
+    size = 10000000
     ceiling = 10000
     # pivotType = True
     pivotType = True

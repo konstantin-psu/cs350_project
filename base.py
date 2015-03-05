@@ -3,6 +3,7 @@ __author__ = 'konstantin'
 import sys
 import time
 import randomizer
+import json
 from pprint import pprint
 
 sys.setrecursionlimit(2500)
@@ -35,6 +36,9 @@ class testbase(object):
     TOTALSPACE = 0
     RECLIM = sys.getrecursionlimit()
     NAME = ""
+    CEILING = 0
+    INT = None
+    PARTITIONTYPE = None
     toSort = None  #placeholder for array that will be sorted
     REPETITIONS = 5
     #Partition types
@@ -43,6 +47,7 @@ class testbase(object):
     sorted = 2
     reverse = 3
     identical = 4
+    filename = ""
     s25 = 5
     s85 = 6
 
@@ -63,10 +68,13 @@ class testbase(object):
     """ REQUIRED """
     TYPE = None
     size = 1
-    duplicates = 0
+    totDupl = 0
     seed = 10
     pivotType = False
 
+
+    def __init__(self):
+        pass
 
     def reset(self):
         self.BASIC = 0
@@ -77,31 +85,46 @@ class testbase(object):
         self.PARTITIONRTIME = 0
         self.TOTALSPACE = 0
         self.toSort = []
-    def info(self):
+
+    def setinfo(self):
+        self.dupl(self.toSort)
         self.info = {
             "name":self.name,
-            "size":str(self.size),
-            "basic operations" : str(self.BASIC),
-            "partition operations" : str(self.SPLITS),
-            "total split time":":.50f}".format(self.SPLITRTIME),
-            "total time":"{:.50f}".format(self.TOTALRTIME),
-            "total partition":"{:.50f}".format(self.SORTHELPERRTIME),
-            "total space used":str(self.TOTALSPACE),
-            "number of duplicates" : str(self.dpl),
-            "correctness" : str(self.correctness(self.toSort))
+            "size":self.size,
+            "basic operations" : self.BASIC,
+            "partition operations" : self.SPLITS,
+            "total split time":self.SPLITRTIME,
+            "total time":self.TOTALRTIME,
+            "total partition":self.SORTHELPERRTIME,
+            "total space used":self.TOTALSPACE,
+            "number of duplicates" : self.totDupl,
+            "ceiling":self.CEILING,
+            "partition type":self.PARTITIONTYPE,
+            "is integer":self.INT,
+            "correctness" : self.correctness(self.toSort)
+
         }
 
-    def dump(self):
-        print("name:                 " + self.name)
-        print("size:                 " + str(self.size))
-        print("basic operations:     " + str(self.BASIC))
-        print("partition operations: " + str(self.SPLITS))
-        print("total split time:     {:.50f}".format(self.SPLITRTIME))
-        print("total time:           {:.50f}".format(self.TOTALRTIME))
-        print("total partition:      {:.50f}".format(self.SORTHELPERRTIME))
-        print("total space used:     " + str(self.TOTALSPACE))
-        print("number of duplicates: " + str(self.dpl))
-        print("correctness:          " + str(self.correctness(self.toSort)))
+
+    def print(self):
+        pprint(self.info)
+
+    def dupl(self, arr):
+        self.duplicates = {}
+        for i in arr:
+            try:
+                self.duplicates[i] += 1
+            except KeyError:
+                self.duplicates[i] = 0
+
+
+        self.totDupl = 0
+        for i in self.duplicates:
+            self.totDupl += self.duplicates[i]
+
+
+
+
 
     def pivot(self, arr, first, l, r):
         if (self.pivotType):
