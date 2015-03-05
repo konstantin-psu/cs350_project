@@ -110,8 +110,9 @@ class generator:
         if (self.asInt):
             s = s.astype(int)
         return s
-    def randomPivot(self, max):
-        return random.randint(max)
+    def randomPivot(self, min = 0,  max=0):
+        p = random.randint(low= min, high = max)
+        return p
 
 class rnd:
     def normal(self, max):
