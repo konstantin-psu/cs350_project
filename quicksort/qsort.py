@@ -3,16 +3,16 @@ __author__ = 'konstantin'
 from base import *
 import argparse
 
-parser = argparse.ArgumentParser(description='Get input size')
-parser.add_argument('-t', dest = 'type', type=int)
-parser.add_argument('-s', dest = 'inputSize', type=int)
-parser.add_argument('-pt', dest = 'partType', type=int)
-parser.add_argument('-c', dest = 'ceiling', type=int)
-parser.add_argument('-i', dest = 'asInt', type=int)
-parser.add_argument('-piv', dest = 'Pivot', type=int)
+parser = argparse.ArgumentParser(description='Test harness arguments parser')
+parser.add_argument('-t', dest = 'type', type=int, help= 'Test type, can be empty')
+parser.add_argument('-s', dest = 'inputSize', type=int, help='Array size')
+parser.add_argument('-pt', dest = 'partType', type=int, help = 'Partition Type')
+parser.add_argument('-c', dest = 'ceiling', type=int, help='Ceiling of values to be created for our array, if ceiling is less than input size, and type is set as integer, then by pigeon principle array will have duplicates')
+parser.add_argument('-i', dest = 'asInt', type=int, help='Array content type, if 1 then content is integers, 0 for floats')
+parser.add_argument('-piv', dest = 'Pivot', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
 
 args = parser.parse_args()
-sys.path.insert(0, '/u/konstan2/cs350_project')
+# sys.path.insert(0, '/u/konstan2/cs350_project') change to project path
 
 testType = 0
 partitionType = 0
@@ -62,13 +62,14 @@ class qsort(testbase):
         self.toSort = self.generator.gen(self.partType, self.size)
         self.PARTITIONTYPE = self.ptypes[self.partType]
         self.name = self.names[rtype]
-        self.filename = self.name
+        self.filename = self.name+"_test_results.json"
         self.CEILING = ceiling
         #self.dupl(self.toSort)
         self.sort()
         self.SPLITRTIME = self.TOTALRTIME - self.SORTHELPERRTIME
         self.setinfo()
         # self.print()
+        print(self.toSort)
         self.dump()
         self.reset()
 
@@ -88,10 +89,6 @@ class qsort(testbase):
             pstr = "random"
         self.info['pivot type']=pstr
 
-    def dump(self):
-        with open(self.filename, 'a') as out:
-            out.write(json.dumps(self.info, sort_keys = True, indent=4, separators=(',', ':')))
-            out.write("\n")
 
     #IMPLEMENTATION #######################################################
     def quickSortThreeWay(self, arr):
@@ -174,8 +171,8 @@ class qsort(testbase):
 
 def run():
     rtype = threeWay
-    partType = Uniform
-    size = 10000000
+    partType = Gauss
+    size = 100
     ceiling = 10000
     # pivotType = True
     pivotType = True

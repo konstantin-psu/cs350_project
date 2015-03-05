@@ -31,6 +31,30 @@ from numpy import around
 #
 #@do_cprofile
 SEED = 10
+class item:
+    #place holders:
+    value = None
+    id = None
+    def __init__(self, value, id):
+        self.value = value
+        self.id = id
+    def __eq__(self, other):
+        return self.value == other.value
+    def __ne__(self, other):
+        return self.value != other.value
+    def __lt__(self, other):
+        return self.value < other.value
+    def __gt__(self, other):
+        return self.value > other.value
+    def __le__(self, other):
+        return self.value <= other.value
+    def __ge__(self, other):
+        return self.value >= other.value
+    def __str__(self):
+        return str(self.value)
+    def __repr__(self):
+        return str(self.value)
+
 class generator:
     Gauss = 0
     Uniform = 1
@@ -67,29 +91,29 @@ class generator:
         s = random.normal(self.median, self.maximum, size)
         if (self.asInt):
             s = s.astype(int)
-        return s
+        return self.convert(s)
     def uniform(self, size):
         s = random.uniform(high = self.maximum, size=size)
         if (self.asInt):
             s = s.astype(int)
-        return s
+        return self.convert(s)
     def sorted(self, size):
         s = self.uniform(size=size)
         s = sort(s)
         if (self.asInt):
             s = s.astype(int)
-        return s
+        return self.convert(s)
     def reverseSorted(self, size):
         s = self.sorted(size)
         s = s[::-1]
         if (self.asInt):
             s = s.astype(int)
-        return s
+        return self.convert(s)
     def identical(self, size):
         s = random.uniform(low=self.maximum, high = self.maximum, size=size)
         if (self.asInt):
             s = s.astype(int)
-        return s
+        return self.convert(s)
     def s25(self, size):
         if (size < 4):
             first = 1
@@ -99,7 +123,7 @@ class generator:
         s = concatenate([sort(random.uniform(high = self.maximum, size=first)) , random.uniform(high = self.maximum, size=last)])
         if (self.asInt):
             s = s.astype(int)
-        return s
+        return self.convert(s)
     def s85(self, size):
         if (size < 4):
             last = 1
@@ -109,42 +133,17 @@ class generator:
         s = concatenate([sort(random.uniform(high = self.maximum, size=first)) , random.uniform(high = self.maximum, size=last)])
         if (self.asInt):
             s = s.astype(int)
-        return s
+        return self.convert(s)
     def randomPivot(self, min = 0,  max=0):
         p = random.randint(low= min, high = max)
         return p
 
-class rnd:
-    def normal(self, max):
-        s = random.binomial(self.median, max)
-        return int(around(s))
-    def uniform(self, size):
-        s = random.uniform(high = self.maximum)
-        return s
-    def sorted(self, size):
-        s = self.uniform(size=size)
-        s = sort(s)
-        return s
-    def reverseSorted(self, size):
-        s = self.sorted(size)
-        s = s[::-1]
-        return s
-    def identical(self, size):
-        s = random.uniform(low=self.maximum, high = self.maximum, size=size)
-        return s
-    def s25(self, size):
-        if (size < 4):
-            first = 1
-        else:
-            first = int(around(size * 0.25))
-        last = size - first
-        s = concatenate([sort(random.uniform(high = self.maximum, size=first)) , random.uniform(high = self.maximum, size=last)])
-        return s
-    def s85(self, size):
-        if (size < 4):
-            last = 1
-        else:
-            last = int(around(size * 0.25))
-        first = size - last
-        s = concatenate([sort(random.uniform(high = self.maximum, size=first)) , random.uniform(high = self.maximum, size=last)])
-        return s
+    def convert(self, a):
+        # will be array of items
+        arr = []
+        id = 0
+        for i in a:
+            x = item(i,id)
+            arr.append(x)
+            id += 1
+        return arr

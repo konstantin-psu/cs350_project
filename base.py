@@ -17,6 +17,9 @@ Reverse = 3
 Identical = 4
 S25 = 5
 S85 = 6
+
+#For stability check
+
 class testbase(object):
     """
       Global variables used to output information:
@@ -30,17 +33,20 @@ class testbase(object):
     """ GENERATED """
     SPLITS = 0 # number of splits
     BASIC = 0 # number of partition basic operations
+    RECURSIONDEPTH= 0
     SPLITRTIME = 0
     TOTALRTIME = 0
     SORTHELPERRTIME = 0
     TOTALSPACE = 0
     RECLIM = sys.getrecursionlimit()
-    NAME = ""
+    STABILITY=None
+    name = ""
     CEILING = 0
     INT = None
     PARTITIONTYPE = None
     toSort = None  #placeholder for array that will be sorted
     REPETITIONS = 5
+    size = 0
     #Partition types
     gauss = 0
     uniform = 1
@@ -101,7 +107,8 @@ class testbase(object):
             "ceiling":self.CEILING,
             "partition type":self.PARTITIONTYPE,
             "is integer":self.INT,
-            "correctness" : self.correctness(self.toSort)
+            "correctness" : self.correctness(self.toSort),
+            "stability":self.STABILITY
 
         }
 
@@ -113,9 +120,9 @@ class testbase(object):
         self.duplicates = {}
         for i in arr:
             try:
-                self.duplicates[i] += 1
+                self.duplicates[i.value] += 1
             except KeyError:
-                self.duplicates[i] = 0
+                self.duplicates[i.value] = 0
 
 
         self.totDupl = 0
@@ -123,6 +130,10 @@ class testbase(object):
             self.totDupl += self.duplicates[i]
 
 
+    def dump(self):
+        with open(self.filename, 'a') as out:
+            out.write(json.dumps(self.info, sort_keys = True, indent=4, separators=(',', ':')))
+            out.write("\n")
 
 
 
@@ -135,6 +146,7 @@ class testbase(object):
         return arr[r], r
 
     def correctness(self, a):
+        #check stability along the way
         if len(a) != self.size:
             return False
         l = len(a)
@@ -142,10 +154,13 @@ class testbase(object):
         p = 0
         while i < l:
             if a[i] < a[p]:
-                print(str(i-1)+" Previous "+a[p].astype('str')+" current "+ a[i].astype('str'))
+                # print(str(i-1)+" Previous "+a[p].astype('str')+" current "+ a[i].astype('str'))
                 # err +=1
                 # if err > 1:
                 return False
+            if a[i].id < a[p].id:
+                self.STABILITY = False
             p +=1
             i +=1
+        self.STABILITY = True
         return True
