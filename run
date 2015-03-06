@@ -14,6 +14,7 @@ ALGORITHMS=$2
 echo $SORTLOC
 echo $ALGORITHMS
 
+
 #Create results dir if not already exists
 if [ ! -d "$RESULTSDIR" ]; then
     mkdir "$RESULTSDIR"
@@ -25,7 +26,8 @@ cd $SORTLOC
 
 
 #===========================Variables=========================================
-SCRIPTNAME=`cat $ALGORITHMS`
+
+SCRIPTNAME=$(<$ALGORITHMS)
 MAX=100
 ceiling=1000 #maximum value in the array
 t=0 #sort type, in my case I have several sorts in one file
@@ -82,8 +84,6 @@ info() {
     echo "asInt           $asInt"
     echo "cutoff          $cutoff"
     echo "cutoffMax       $cutoffMax"
-    echo $Color5
-    echo "python3 $algorithm -t $t -s $currSize -pt $pt -c $ceiling -i $asInt -piv $pivot -cut $cutoff -f $algorithm"
     echo $Color15
     echo "Done"
     echo $Color_OFF
@@ -93,16 +93,29 @@ echo "Working ..."
 
 for algorithm in $SCRIPTNAME #for all files:
 do
+    echo "$algorithm"
+done
+
+for algorithm in $SCRIPTNAME #for all files:
+do
+	f=`basename $algorithm .py`
     while [ $pt -lt $ptm ] #for all partition types
     do
+        echo "partitions"
         while [ $t -lt $tm ] #for all sort types
         do
+            echo "types"
             while [ $currSize -lt $MAX ] #for sizes from currSize to MAX
             do
+                echo "sizes"
                 while [ $currExperiment -lt $experiments ] #try number of times = experiments
                 do
+                    echo "experiments"
                     info
-                    python3 $algorithm -t $t -s $currSize -pt $pt -c $ceiling -i $asInt -piv $pivot -cut $cutoff -f $algorithm
+                    echo $Color5
+                    echo "python3 $algorithm -t $t -s $currSize -pt $pt -c $ceiling -i $asInt -piv $pivot -cut $cutoff -f $f"
+                    echo $Color_OFF
+                    python3 $algorithm -t $t -s $currSize -pt $pt -c $ceiling -i $asInt -piv $pivot -cut $cutoff -f $f
                     currExperiment=$(($currExperiment+1))
                 done
                 currExperiment=0
@@ -118,7 +131,8 @@ do
         t=0
         pt=$(($pt+1))
     done
-    mv *.json $RESULTSDIR
-    echo "results for $SCRIPTNAME moved to $RESULTSDIR"
+    pt=0
 done
 
+ mv *.json $RESULTSDIR
+ echo "results for moved to $RESULTSDIR"

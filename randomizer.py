@@ -96,13 +96,13 @@ class generator:
             s = s.astype(int)
         return self.convert(s)
     def sorted(self, size):
-        s = self.uniform(size=size)
+        s = random.uniform(high = self.maximum, size=size)
         s = sort(s)
         if (self.asInt):
             s = s.astype(int)
         return self.convert(s)
     def reverseSorted(self, size):
-        s = self.sorted(size)
+        s = random.uniform(high = self.maximum, size=size)
         s = s[::-1]
         if (self.asInt):
             s = s.astype(int)

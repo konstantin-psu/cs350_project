@@ -24,8 +24,8 @@ class msort(testbase):
         B = [None] * end
         start = time.perf_counter()
         self.begin= time.perf_counter()
-        # self.mergesort(self.toSort,B, 0, end - 1)
-        self.toSort = self.mergesort1(self.toSort)
+        self.mergesort(self.toSort,B, 0, end - 1)
+        # self.toSort = self.mergesort1(self.toSort)
         end = time.perf_counter()
         self.TOTALRTIME = end - start
         self.SPLITRTIME += self.TOTALRTIME - self.SORTHELPERRTIME
@@ -115,27 +115,7 @@ class msort(testbase):
 
 
 def run():
-    partType = Uniform
-    size = 1000000
-    ceiling = 100
-    # pivotType = True
-    pivotType = False
-    isInt = True
-    if args.inputSize is not None:
-        size = args.inputSize
-    if args.type is not None:
-        rtype = args.type
-    if args.partType is not None:
-        partType = args.partType
-    if args.ceiling is not None:
-        ceiling = args.ceiling
-    if args.asInt is not None:
-        isInt = bool(args.asInt)
-    if args.Pivot is not None:
-        pivotType = bool(args.Pivot)
-
     srt = msort(size=size, ceiling=ceiling, asInt=isInt, rtype=partType)
 
 
 run()
-#cProfile.run('mergesort(list, B, start, end - 1)')
