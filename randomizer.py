@@ -33,8 +33,6 @@ from numpy import around
 SEED = 10
 class item:
     #place holders:
-    value = None
-    id = None
     def __init__(self, value, id):
         self.value = value
         self.id = id

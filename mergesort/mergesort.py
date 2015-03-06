@@ -2,25 +2,16 @@ import random, cProfile, argparse, time
 import randomizer
 import time
 from numpy import copy
-import argparse
 from base import *
-from heapq import merge
 
 
-parser = argparse.ArgumentParser(description='Test harness arguments parser')
-parser.add_argument('-t', dest = 'type', type=int, help= 'Test type, can be empty')
-parser.add_argument('-s', dest = 'inputSize', type=int, help='Array size')
-parser.add_argument('-pt', dest = 'partType', type=int, help = 'Partition Type')
-parser.add_argument('-c', dest = 'ceiling', type=int, help='Ceiling of values to be created for our array, if ceiling is less than input size, and type is set as integer, then by pigeon principle array will have duplicates')
-parser.add_argument('-i', dest = 'asInt', type=int, help='Array content type, if 1 then content is integers, 0 for floats')
-parser.add_argument('-piv', dest = 'Pivot', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
-args = parser.parse_args()
 
 
 class msort(testbase):
     name="mergesort"
     #Declare test type just to stay consistent
-    margesort = 0
+    mergesort = 0
+    mergesort1 = 1
 
     def __init__(self, size, ceiling, asInt, rtype):
         self.size = size
@@ -31,7 +22,6 @@ class msort(testbase):
         self.PARTITIONTYPE = self.ptypes[rtype]
         end = len(self.toSort)
         B = [None] * end
-        self.filename = self.name + "_test_results.json"
         start = time.perf_counter()
         self.begin= time.perf_counter()
         # self.mergesort(self.toSort,B, 0, end - 1)
@@ -41,7 +31,6 @@ class msort(testbase):
         self.SPLITRTIME += self.TOTALRTIME - self.SORTHELPERRTIME
         # pprint(self.toSort)
         self.setinfo()
-        pprint(self.info)
         self.dump()
 
     def merge(self, A, B, start, middle, end):

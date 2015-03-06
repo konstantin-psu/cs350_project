@@ -5,6 +5,19 @@ import time
 import randomizer
 import json
 from pprint import pprint
+import argparse
+
+parser = argparse.ArgumentParser(description='Test harness arguments parser')
+parser.add_argument('-t', dest = 'type', type=int, help= 'Test type, can be empty')
+parser.add_argument('-s', dest = 'inputSize', type=int, help='Array size')
+parser.add_argument('-pt', dest = 'partType', type=int, help = 'Partition Type')
+parser.add_argument('-c', dest = 'ceiling', type=int, help='Ceiling of values to be created for our array, if ceiling is less than input size, and type is set as integer, then by pigeon principle array will have duplicates')
+parser.add_argument('-i', dest = 'asInt', type=int, help='Array content type, if 1 then content is integers, 0 for floats')
+parser.add_argument('-piv', dest = 'Pivot', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
+parser.add_argument('-cut', dest = 'CutOff', type=int, help='cutof value')
+parser.add_argument('-f', dest = 'filename', type=str, help='filename')
+
+args = parser.parse_args()
 
 sys.setrecursionlimit(2500)
 
@@ -40,6 +53,10 @@ class testbase(object):
     TOTALSPACE = 0
     RECLIM = sys.getrecursionlimit()
     STABILITY=None
+    ALTSORTRTIME=0
+    ALTSROTBASIC=0
+    ALTSORTSPLITS=0
+    cutoff=None
     name = ""
     CEILING = 0
     INT = None
@@ -53,7 +70,7 @@ class testbase(object):
     sorted = 2
     reverse = 3
     identical = 4
-    filename = ""
+    filename = args.filename + "_results.json"
     s25 = 5
     s85 = 6
 
@@ -108,6 +125,7 @@ class testbase(object):
             "partition type":self.PARTITIONTYPE,
             "is integer":self.INT,
             "correctness" : self.correctness(self.toSort),
+            "cutoff":self.cutoff,
             "stability":self.STABILITY
 
         }
@@ -164,3 +182,34 @@ class testbase(object):
             i +=1
         self.STABILITY = True
         return True
+
+# parser.add_argument('-t', dest = 'type', type=int, help= 'Test type, can be empty')
+# parser.add_argument('-s', dest = 'inputSize', type=int, help='Array size')
+# parser.add_argument('-pt', dest = 'partType', type=int, help = 'Partition Type')
+# parser.add_argument('-c', dest = 'ceiling', type=int, help='Ceiling of values to be created for our array, if ceiling is less than input size, and type is set as integer, then by pigeon principle array will have duplicates')
+# parser.add_argument('-i', dest = 'asInt', type=int, help='Array content type, if 1 then content is integers, 0 for floats')
+# parser.add_argument('-piv', dest = 'Pivot', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
+# parser.add_argument('-cut', dest = 'CutOff', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
+
+partType = Reverse
+size = 10000
+ceiling = 10000
+rtype = Uniform
+# pivotType = True
+pivotType = False
+isInt = True
+cutoff=10
+if args.inputSize is not None:
+    size = args.inputSize
+if args.type is not None:
+    rtype = args.type
+if args.partType is not None:
+    partType = args.partType
+if args.ceiling is not None:
+    ceiling = args.ceiling
+if args.asInt is not None:
+    isInt = bool(args.asInt)
+if args.Pivot is not None:
+    pivotType = bool(args.Pivot)
+if args.CutOff is not None:
+    cutoff = args.CutOff
