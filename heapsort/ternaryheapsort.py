@@ -26,8 +26,8 @@ S85 = 6
 
 
 
-class buhsort:
-    name="bottomup_heapsort "
+class hsort:
+    name="Ternary heapsort "
     BASIC=0
     size=0
     PART=0
@@ -60,7 +60,7 @@ class buhsort:
         self.name = self.name + self.ptypes[rtype] +str(size)
         start = time.perf_counter()
         self.begin = time.perf_counter()
-        self.heapsort(self.toSort)
+        self.ternaryheapsort(self.toSort)
         end = time.perf_counter()
         self.TOTALRTIME = end - start
         self.SPLITRTIME += self.TOTALRTIME - self.PARTITIONRTIME
@@ -68,54 +68,26 @@ class buhsort:
 
 
 
-    def heapsort(self, A):
+    def heapify(self, A, end, i):
+        firstChild = 3 * i + 1
+        lastChild = min(firstChild + 3, end)
+        children = list(range(firstChild, lastChild))
+        maxElement = max((A[j], j) for j in [i] + children)
+        #maxValue, \
+        maxIndex = maxElement[1]
+        if maxIndex != i:
+            A[i], A[maxIndex] = A[maxIndex], A[i]
+            self.heapify(A, end, maxIndex)
 
-        count = len(A)
-        self.heapify(A, count)
-
-        end = count - 1
-        while end > 0:
-            #swap A[end] and A[0]
-            A[end], A[0] = A[0], A[end]
-
-            #reduce heap size by 1
-            end -= 1
-
-            self.siftDown(A, 0, end)
-
-
-    #common in-place heap construction routine
-    def heapify(self, A, count):
-        start = int(math.floor((count - 1) / 2))
-
-        while start >= 0:
-            self.siftDown(A, start, count - 1)
-            start -= 1
-
-
-
-    def leafSearch(self, A, i, end):
-        j = i
-        while (2 * j) >= end:
-            if (2 * j + 1) < end and (A[2 * j + 1] > A[2*j]):
-                j = 2 * j + 1
-            else:
-                j = 2 * j
-        return j
-
-
-    def siftDown(self, A, i, end):
-        j = self.leafSearch(A, end, i)
-
-
-        while A[i] > A[j]:
-            parent = int(math.floor((j - 1)/2))
-            j = parent
-        x = A[j]
-        A[j] = A[i]
-        while j > i:
-            x, A[parent] = A[parent], x
-            j = parent
+    def ternaryheapsort(self, A):
+        end = len(A)
+        start = end // 2
+        for i in reversed(range(start)):
+            self.heapify(A, end, i)
+        for i in reversed(range(end)):
+            A[i], A[0] = A[0], A[i]
+            self.heapify(A, i, 0)
+        #print (A)
 
 
     def dump(self):
@@ -123,7 +95,6 @@ class buhsort:
         if (self.pivotType):
             pstr = "random"
 
-        print(self.toSort)
         print("name:                 " + self.name)
         print("basic operations:     " + str(self.BASIC))
         print("size:                 " + str(self.size))
@@ -140,8 +111,8 @@ class buhsort:
 
 def run():
     partType = Reverse
-    size = 10000
-    ceiling = 10000
+    size = 100000
+    ceiling = 100000
     rtype = Uniform
     # pivotType = True
     pivotType = False
@@ -159,8 +130,7 @@ def run():
     if args.Pivot is not None:
         pivotType = bool(args.Pivot)
 
-    srt = buhsort(size=size, ceiling=ceiling, asInt=isInt, rtype=rtype)
+    srt = hsort(size=size, ceiling=ceiling, asInt=isInt, rtype=rtype)
 
 
 run()
-
