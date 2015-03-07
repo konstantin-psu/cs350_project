@@ -71,6 +71,7 @@ class testbase(object):
     reverse = 3
     identical = 4
     filename = args.filename + "_results.json"
+    # filename = "_results.json"
     s25 = 5
     s85 = 6
 
