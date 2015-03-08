@@ -126,7 +126,7 @@ choosing a low-overhead language won't necessarily produce "more accurate" resul
                     \State{$less.append(x)$}
                 \ElsIf{$x > pivot$}
                     \State{$greater.append(x)$}
-                \Else{ $x == pivot$}
+                \Else{}
                     \State{$equal.append(x)$}
                 \EndIf
             \EndFor{}  
@@ -144,21 +144,28 @@ choosing a low-overhead language won't necessarily produce "more accurate" resul
         \Function{QuickSortDualPivot} {input:  an array of numbers $A$, output: a sorted array}
             \State{$pivot1 = get_pivot()$}
             \State{$pivot2 = get_pivot()$}
-            \State{$less=[]$}  //To store all values less than the pivot
-            \State{$greater=[]$}  //To store all values greater than the pivot
-            \State{$equal=[]$}    //Store all values equal to the pivot
+            \State{$less=[]$}  //To store all values less than the pivot1
+            \State{$middle=[]$}  //Store values less than pivot2 and greater than pivot1
+            \State{$greater=[]$}  //To store all values greater than the pivot2
+            \State{$equal1=[]$}    //Store all values equal to the pivot1
+            \State{$equal2=[]$}    //Store all values equal to the pivot2
             \For{$x$ in $A$}
-                \If{$x < pivot$}
-                    \State{$less.append(x)$}
-                \ElsIf{$x > pivot$}
+                \If{$x == pivot1$}
+                    \State{$equal1.append(x)$}
+                \ElsIf{$x == pivot2$}
+                    \State{$equal2.append(x)$}
+                \ElsIf{$x > pivot2$}
                     \State{$greater.append(x)$}
-                \Else{ $x == pivot$}
-                    \State{$equal.append(x)$}
+                \ElsIf{ $x < pivot1$}
+                    \State{$less.append(x)$}
+                \Else{}
+                    \State{$middle.append(x)$}
                 \EndIf
             \EndFor{}  
             \State{$less = QuickSortThreeWay(less)$}
+            \State{$middle = QuickSortThreeWay(middle)$}
             \State{$greater = QuickSortThreeWay(greater)$}
-            \State{} \Return{$concatenate(less, equal, greater)$}
+            \State{} \Return{$less+equal1+middle +equal2+ greater$}
  
         \EndFunction{}
     \end{algorithmic}
@@ -166,18 +173,65 @@ choosing a low-overhead language won't necessarily produce "more accurate" resul
 
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
-        \Function{QuickSort} {input:  an array of numbers A, output: a sorted array}
+        \Function{QuickSortInPlace} {input:  an array of numbers A, f - location of first element, l - location of last element, output: a sorted array}
+            \If {$first<last$}
+                \State{$s = partition(A, f, l)$}
+                \State{quickSortInPlace(A,f,s-1)}
+                \State{quickSortInPlace(A,s+1,l)}
+            \EndIf
+
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
 
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
-        \Function{QuickSort} {input:  an array of numbers A, output: a sorted array}
+        \Function{Lomuto} {input:  an array of numbers A, f - location of first element, l - location of last element, output: a sorted array}
+            \State{$p=get\_pivot()$}
+            \State{$i = f + 1$}
+            \State{$s = f$}
+            \While{$i \le l$}
+                \If{$A[i] < p$}
+                    \State{$s = s +1$}
+                    \State{$Swap(A[s],A[i]$}
+                \EndIf 
+                \State{$i = i + 1$}
+            \EndWhile
+            \State{$Swap(A[f],A[s]$}
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{Hoare} {input:  an array of numbers A, f - location of first element, l - location of last element, output: a sorted array}
+            \State{$p=get\_pivot()$}
+            \State{$left = f+1$}
+            \State{$right = l$}
+
+            \State{$done = False$}
+            \While{$! done$}
+                \While{$left \le right \and A[left] \le p$}
+                    \State{$left = left + 1$}
+                \EndWhile
+
+                \While{ $A[right] \ge p \and right \ge left$}
+                    \State{$right = right -1$}
+                \EndWhile
+
+                \If{$right < left$}
+                    \State{$done = True$}
+                \Else
+                    \State{$Swap(A[left],A[right]$}
+                \EndIf
+            \EndWhile
+
+            \State{$Swap(A[f],A[right]$}
+            \State{} \Return{$right$}
+
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
 
 \begin{enumerate}
 \item heapsort
