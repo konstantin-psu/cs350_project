@@ -69,6 +69,7 @@ Citation example\cite{ABOOK}
 We had originally planed to write our implementations in C++ and our test programs in bash and python.  \\
 choosing a low-overhead language won't necessarily produce "more accurate" results.  The absolute costs of the basic operations are irrelevant to the purpose of the project, which is to compare analytical and measured results.
 
+\subsection{MergeSort}
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{Mergesort} {input:  an array of numbers A, output: a sorted array}
@@ -116,7 +117,7 @@ choosing a low-overhead language won't necessarily produce "more accurate" resul
 
 
 
-BOTTOM-UP
+\subsection{BottomUpMergeSort}
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{BottomUpMerge}{}
@@ -167,7 +168,7 @@ BOTTOM-UP
 \end{algorithm}
 
 
-
+\subsection{MergeSort with InsertionSort}
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{Merge}{array A, array B, int, int, int}
@@ -257,8 +258,7 @@ BOTTOM-UP
 
 
 
-
-
+\subsection{QuickSort}
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{QuickSortDualPivot} {input:  an array of numbers $A$, output: a sorted array}
