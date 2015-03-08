@@ -2,31 +2,21 @@ __author__ = 'konstantin'
 
 from base import *
 import argparse
-#sys.setrecursionlimit(50000)
-parser = argparse.ArgumentParser(description='Get input size')
-parser.add_argument('-t', dest = 'type', type=int)
-parser.add_argument('-s', dest = 'inputSize', type=int)
-parser.add_argument('-pt', dest = 'partType', type=int)
-parser.add_argument('-c', dest = 'ceiling', type=int)
-parser.add_argument('-i', dest = 'asInt', type=int)
-parser.add_argument('-piv', dest = 'Pivot', type=int)
-
-args = parser.parse_args()
-
-sys.path.insert(0, '/u/konstan2/cs350_project')
+from base import *
+# sys.path.insert(0, '/u/konstan2/cs350_project')
 
 testType = 0
 partitionType = 0
 
 basic = 0
-dualPivot = 1
-basicH = 2
+dualPivot = 2
+basicH = 1
 
 class qsortInPlace(testbase):
     #Test types
     basic = 0
-    dualPivot = 1
-    basicH = 2
+    basicH = 1
+    dualPivot = 2
     suf='qsortInPlace'
     name = ""
     dpl = 0
@@ -66,6 +56,7 @@ class qsortInPlace(testbase):
         #self.dupl(self.toSort)
         self.sort()
         self.SPLITRTIME = self.TOTALRTIME - self.SORTHELPERRTIME
+        self.setinfo()
         # pprint(self.toSort)
         self.dump()
         self.reset()
@@ -76,9 +67,12 @@ class qsortInPlace(testbase):
         if self.TYPE == self.basic:
             self.quickSortLomuto(self.toSort, 0, lr-1)
         elif self.TYPE == self.dualPivot:
+            return
             self.quickSortDualPivot(self.toSort, 0, lr-1)
-        if self.TYPE == self.basicH:
+        elif self.TYPE == self.basicH:
             self.quickSortHoare(self.toSort, 0, lr-1)
+        else:
+            return
         end = time.perf_counter()
         self.TOTALRTIME = end - start
 
@@ -232,42 +226,6 @@ class qsortInPlace(testbase):
 
 
 def run():
-    # rtype = basic
-    rtype = dualPivot
-    partType = Uniform
-    size = 150
-    ceiling = 500
-    # pivotType = True
-    pivotType = False
-    isInt = True
-    if args.inputSize is not None:
-        size = args.inputSize
-    if args.type is not None:
-        rtype = args.type
-    if args.partType is not None:
-        partType = args.partType
-    if args.ceiling is not None:
-        ceiling = args.ceiling
-    if args.asInt is not None:
-        isInt = bool(args.asInt)
-    if args.Pivot is not None:
-        pivotType = bool(args.Pivot)
-
     srt = qsortInPlace(rtype=rtype, partType = partType, size = size, ceiling = ceiling, asInt = isInt, pivotType= pivotType)
 
 run()
-
-# /usr/bin/python3.4 /home/konstantin/cs350_project/quicksort/qsortInplace.py
-# name:                 qsortInPlaceBasicuniform
-# size:                 10000000
-# basic operations:     0
-# partition operations: 19980001
-# total split time:     10.54379344057088019326329231262207031250000000000000
-# total time:           964.10956462100148200988769531250000000000000000000000
-# total partition:      953.56577118043060181662440299987792968750000000000000
-# total space used:     10000000
-# number of duplicates: 0
-# correctness:          True
-# pivot type   :        random
-#
-# Process finished with exit code 0

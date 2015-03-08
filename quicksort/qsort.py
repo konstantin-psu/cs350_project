@@ -1,17 +1,6 @@
 __author__ = 'konstantin'
 
 from base import *
-import argparse
-
-parser = argparse.ArgumentParser(description='Test harness arguments parser')
-parser.add_argument('-t', dest = 'type', type=int, help= 'Test type, can be empty')
-parser.add_argument('-s', dest = 'inputSize', type=int, help='Array size')
-parser.add_argument('-pt', dest = 'partType', type=int, help = 'Partition Type')
-parser.add_argument('-c', dest = 'ceiling', type=int, help='Ceiling of values to be created for our array, if ceiling is less than input size, and type is set as integer, then by pigeon principle array will have duplicates')
-parser.add_argument('-i', dest = 'asInt', type=int, help='Array content type, if 1 then content is integers, 0 for floats')
-parser.add_argument('-piv', dest = 'Pivot', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
-
-args = parser.parse_args()
 # sys.path.insert(0, '/u/konstan2/cs350_project') change to project path
 
 testType = 0
@@ -37,7 +26,6 @@ class qsort(testbase):
     dualPivot = 1
     suf='qsort'
     name = ""
-    dpl = 0
 
     names = {
         0: suf+'ThreeWay',
@@ -79,6 +67,8 @@ class qsort(testbase):
             self.toSort = self.quickSortThreeWay(self.toSort)
         elif self.TYPE == self.dualPivot:
             self.toSort = self.quickSortDualPivot(self.toSort)
+        else:
+           return
         end = time.perf_counter()
         self.TOTALRTIME = end - start
 
@@ -169,26 +159,6 @@ class qsort(testbase):
             return less + pivotList1 + middle + pivotList2 + more
 
 def run():
-    rtype = threeWay
-    partType = Gauss
-    size = 100
-    ceiling = 10000
-    # pivotType = True
-    pivotType = True
-    isInt = True
-    if args.inputSize is not None:
-        size = args.inputSize
-    if args.type is not None:
-        rtype = args.type
-    if args.partType is not None:
-        partType = args.partType
-    if args.ceiling is not None:
-        ceiling = args.ceiling
-    if args.asInt is not None:
-        isInt = bool(args.asInt)
-    if args.Pivot is not None:
-        pivotType = bool(args.Pivot)
-
     srt = qsort(rtype=rtype, partType = partType, size = size, ceiling = ceiling, asInt = isInt, pivotType= pivotType)
 
 run()
