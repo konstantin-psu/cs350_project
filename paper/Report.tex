@@ -8,7 +8,7 @@
 \usepackage{adjustbox}
 \usepackage{url}
 \usepackage[plain]{algorithm}
-\usepackage{algpseudocode}
+\usepackage[noend]{algpseudocode}
 \usepackage{amsmath}
 
 \usepackage{listings}
@@ -66,24 +66,21 @@ We had originally planed to write our implementations in C++ and our test progra
 choosing a low-overhead language won't necessarily produce "more accurate" results.  The absolute costs of the basic operations are irrelevant to the purpose of the project, which is to compare analytical and measured results.
 
 
-\begin{enumerate}
-\item Quicksort
 
+\begin{enumerate}
+\item Mergesort
 \begin{enumerate}
 \item Original
-\item 3-Way Partition
-\item Dual-Pivot
-\item Lomuto (in-place)
-\item Hoare (in-place)
-\item Dual-Pivot (in-place)
+\item Bottom-Up
+\item With Insertion Sort
+\item Checking If Sorted
 \end{enumerate}
 
 \end{enumerate}
 
 
-
-
-
+MERGESORT \\
+ORIGINAL \\
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{Mergesort} {input:  an array of numbers A, output: a sorted array}
@@ -98,26 +95,88 @@ choosing a low-overhead language won't necessarily produce "more accurate" resul
             \State{}\Return {$merge(l, r)$}
         \EndFunction{}
     \end{algorithmic}
+    \begin{algorithmic}[1]
+        \Function{Merge}{}
+            \State{$l1 \leftarrow A.length$}
+            \State{$l2 \leftarrow B.length$}
+            \State{$C \leftarrow []$}
+            \State{$i \leftarrow 0$}
+            \State{$j \leftarrow 0$}
+            \While{$i < l1 $ and $j < l2$:}
+                \If{$A[i] \leq B[j]:$}
+                    \State{$C.append(A[i])$}
+                    \State{$i += 1$}
+                \Else{}
+                    \State{$C.append(B[j])$}
+                    \State{$j += 1$}
+                \EndIf
+            \EndWhile
+            \While{$i < l1:$}
+                \State{$C.append(A[i])$}
+                \State{$i \leftarrow i + 1$}
+            \EndWhile
+            \While{$j < l2:$}
+                \State{$C.append(B[j])$}
+                \State{$j \leftarrow j + 1$}
+            \EndWhile
+            \State\Return{$C$}
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+BOTTOM-UP
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{BottomUpMerge}{}
+            \State{$B \leftarrow$ copy of $A$}
+            \State{$i \leftarrow start$}
+            \State{$j \leftarrow middle + 1$}
+    
+            \For{$k$ in $start$ to $end + 1$:}
+                \If{$i > middle$:}
+                    $A[k] \leftarrow B[j]$
+                    \State{$j += 1$}
+                
+                \ElsIf{$j > end$:}
+                    \State{$A[k] \leftarrow B[i]$}
+                    \State{$i += 1$}
+    
+                \ElsIf{$B[j] < B[i]$:}
+                    \State{$A[k] \leftarrow B[j]$}
+                    \State{$j += 1$}
+                \Else{}
+                    \State{$A[k] \leftarrow B[i]$}
+                    \State{$i \leftarrow i + 1$}
+                \EndIf
+        \EndFunction{}
+    \end{algorithmic}
+    \begin{algorithmic}[1]
+        \Function{BottomUpSort}{input: an array of numbers, $A$; output: a sorted array}
+            \State{$length \leftarrow length(A)$}
+            \State{$B$ is an empty array of size $length$}
+            \State{size \leftarrow 1}
+            \While{$size < length:$}
+                \State{$start \leftarrow 0$}
+                \While{$start < (length - size):$}
+                    \State{BottomUpMerge($A, B, $}
+                                        \State{\indent \indent $start,$ }
+                                        \State{\indent \indent $start + size - 1,$ }
+                                        \State{\indent \indent $minimum(start + size + size - 1,$ }
+                                        \State{\indent \indent $length - 1$))}
+                    \State{$start \leftarrow start + size + size$}
+                    \EndWhile
+                \State{$size \leftarrow size + size$}
+                \EndWhile
+        \EndFunction{}
+    \end{algorithmic}
 \end{algorithm}
 
 
 
-\begin{enumerate}
-\item Mergesort
-\begin{enumerate}
-\item Original
-\item Bottom-Up
-\item With Insertion Sort
-\item Checking If Sorted
-\end{enumerate}
-
-\end{enumerate}
-
-
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
-        \Function{QuickSortThreeWay} {input:  an array of numbers $A$, output: a sorted array}
-            \State{$pivot = get_pivot()$}
+        \Function{QuickSortThreeWay} { input:  an array of numbers $A$, output: a sorted array}
+            \State{$pivot = get\_pivot()$}
             \State{$less=[]$}  //To store all values less than the pivot
             \State{$greater=[]$}  //To store all values greater than the pivot
             \State{$equal=[]$}    //Store all values equal to the pivot
@@ -232,21 +291,6 @@ choosing a low-overhead language won't necessarily produce "more accurate" resul
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
-
-\begin{enumerate}
-\item heapsort
-
-\begin{enumerate}
-\item Original 
-\item Bottom-up
-\item Smoothsort\\
-Since heapsort uses binary trees, it is structured to have the largest element on the leftmost side of the array.  To mo
-heap sort structures the max-heap to have the largest element of the heap on the leftmost side of the array.
-\item Skewsort
-\end{enumerate}
-
-\end{enumerate}
-
 
 
 
