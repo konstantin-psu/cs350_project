@@ -10,6 +10,7 @@ from base import  *
 class buhsort(testbase):
     name="bottomup_heapsort "
     bottomup = 0
+    filename = "bottomUpHeapsort_results.json"
 
     def __init__(self, size, ceiling, asInt, rtype):
         self.size = size
@@ -58,7 +59,6 @@ class buhsort(testbase):
     def leafSearch(self, A, i, end):
         j = i
         while (2 * j) >= end:
-            self.BASIC += 1
             if (2 * j + 1) < end and (A[2 * j + 1] > A[2*j]):
                 self.BASIC += 2
                 j = 2 * j + 1
@@ -66,7 +66,6 @@ class buhsort(testbase):
                 self.BASIC += 2
                 j = 2 * j
         return j
-
 
     def siftDown(self, A, i, end):
         j = self.leafSearch(A, end, i)

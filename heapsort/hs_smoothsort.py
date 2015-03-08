@@ -1,3 +1,5 @@
+from base import *
+
 def isAscending(v1, v2):
     """Comparator function"""
     return v1 <= v2
@@ -27,6 +29,7 @@ def smoothSort(A):
         r0 = r1
         T = A[r0]
         while b1 >= 3:
+            testbase.BASIC +=1
             r2 = r1 - b1 + c1
 
             if not isAscending(A[r1 - 1], A[r2]):
@@ -50,6 +53,7 @@ def smoothSort(A):
         T = A[r0]
         while p1 > 0:
             while (p1 & 1) == 0:
+                testbase.BASIC += 1
                 p1 >>= 1
                 b1, c1 = up(b1, c1)
             r3 = r1 - b1
@@ -94,6 +98,7 @@ def smoothSort(A):
     c = 1
     #building the tree
     while q < N:
+        testbase.BASIC += 1
         r1 = r
 
         if (p & 7) == 3:
@@ -124,6 +129,7 @@ def smoothSort(A):
 
     #build the sorted array
     while q > 1:
+        testbase.BASIC += 1
         q -= 1
         if b == 1:
             r -= 1
@@ -145,6 +151,38 @@ def smoothSort(A):
             # element q is done
             # element 0 is done
 
-alist = [54,26,93,17,77,31,44,55,20]
-smoothSort(alist)
-print(alist)
+class sortRun(testbase):
+    name="mergesort"
+    #Declare test type just to stay consistent
+    mergesort = 0
+    mergesort1 = 1
+
+    def __init__(self, size, ceiling, asInt, rtype):
+        self.size = size
+        self.gen  = randomizer.generator(maximum=ceiling,asInt=asInt)
+        self.toSort = self.gen.gen(rtype,size)
+        self.CEILING = ceiling
+        self.INT = asInt
+        self.PARTITIONTYPE = self.ptypes[rtype]
+        end = len(self.toSort)
+        B = [None] * end
+        start = time.perf_counter()
+        self.begin= time.perf_counter()
+        smoothSort(self.toSort)
+        # self.toSort = self.mergesort1(self.toSort)
+        end = time.perf_counter()
+        self.TOTALRTIME = end - start
+        self.SPLITRTIME += self.TOTALRTIME - self.SORTHELPERRTIME
+        # pprint(self.toSort)
+        self.setinfo()
+        self.dump()
+
+def run():
+    # alist = [54,26,93,17,77,31,44,55,20]
+    # smoothSort(alist)
+    # print(alist)
+    srt = sortRun(size=size, ceiling=ceiling, asInt=isInt, rtype=partType)
+
+
+run()
+
