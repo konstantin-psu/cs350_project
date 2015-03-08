@@ -16,12 +16,13 @@ class sort(testbase):
         self.PARTITIONTYPE = self.ptypes[rtype]
         start = time.perf_counter()
         self.begin= time.perf_counter()
+        pprint(self.toSort)
         self.heapsort(self.toSort)
         # self.toSort = self.mergesort1(self.toSort)
         end = time.perf_counter()
         self.TOTALRTIME = end - start
         self.SPLITRTIME += self.TOTALRTIME - self.SORTHELPERRTIME
-        # pprint(self.toSort)
+        pprint(self.toSort)
         self.setinfo()
         self.dump()
 
@@ -45,18 +46,18 @@ class sort(testbase):
         s = time.perf_counter()
         largest = 2 * first + 1
         while largest <= last:
-            self.BASIC += 1
             if (largest < last) and (list[largest] < list[largest + 1]):
-                self.BASIC += 2
+                self.BASIC += 1
                 largest += 1
 
 
             if list[largest] > list[first]:
-                self.BASIC += 2
+                self.BASIC += 1
                 self.swap(list, largest, first)
                 first = largest
                 largest = 2 * first + 1
             else:
+                self.BASIC += 1
                 e = time.perf_counter()
                 self.SORTHELPERRTIME += e - s
                 return

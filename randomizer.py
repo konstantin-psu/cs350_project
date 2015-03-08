@@ -51,7 +51,7 @@ class item:
     def __str__(self):
         return str(self.value)
     def __repr__(self):
-        return str(self.value)
+        return str(self.value)+":"+str(self.id)
 
 class generator:
     Gauss = 0

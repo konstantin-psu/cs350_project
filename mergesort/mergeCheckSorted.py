@@ -8,7 +8,7 @@ from numpy import copy
 
 class msort(testbase):
 
-
+    name = "mergesortCheckSorted"
     # list = random.sample(range(size*10), size)
     # start = 0
     # end = len(list)
@@ -37,6 +37,7 @@ class msort(testbase):
         self.dump()
 
     def merge(self, A, B, start, middle, end):
+        s=time.perf_counter()
         B = copy(A)
 
         i = start
@@ -44,21 +45,27 @@ class msort(testbase):
 
         for k in range(start, end + 1):
             if i > middle:
+                self.BASIC +=1
                 A[k] = B[j]
                 j += 1
 
             elif j > end:
+                self.BASIC +=2
                 A[k] = B[i]
                 i += 1
 
             elif B[j] < B[i]:
+                self.BASIC +=3
                 A[k] = B[j]
                 j += 1
 
             else:
+                self.BASIC +=3
                 A[k] = B[i]
                 i += 1
 
+        e=time.perf_counter()
+        self.SORTHELPERRTIME += e - s
 
 
     def mergesort(self, A, B, start, end):

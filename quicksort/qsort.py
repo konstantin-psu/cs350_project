@@ -69,7 +69,7 @@ class qsort(testbase):
         self.SPLITRTIME = self.TOTALRTIME - self.SORTHELPERRTIME
         self.setinfo()
         # self.print()
-        print(self.toSort)
+        # print(self.toSort)
         self.dump()
         self.reset()
 
@@ -139,7 +139,6 @@ class qsort(testbase):
             pivot1, loc1 = self.pivot(arr, True, l = 0, r = lr -1)
             pivot2, loc2 = self.pivot(arr, False, l = 0, r = lr-1)
             if pivot1 > pivot2:
-                 self.BASIC += 1
                  pivot1, pivot2 = pivot2, pivot1
             for i in arr:
                 if i == pivot1:

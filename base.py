@@ -52,7 +52,7 @@ class testbase(object):
     SORTHELPERRTIME = 0
     TOTALSPACE = 0
     RECLIM = sys.getrecursionlimit()
-    STABILITY=None
+    STABILITY=True
     ALTSORTRTIME=0
     ALTSROTBASIC=0
     ALTSORTSPLITS=0
@@ -172,16 +172,15 @@ class testbase(object):
         i =1
         p = 0
         while i < l:
+            if a[i].id < a[p].id and a[i] == a[p]:
+                self.STABILITY = False
             if a[i] < a[p]:
                 # print(str(i-1)+" Previous "+a[p].astype('str')+" current "+ a[i].astype('str'))
                 # err +=1
                 # if err > 1:
                 return False
-            if a[i].id < a[p].id:
-                self.STABILITY = False
             p +=1
             i +=1
-        self.STABILITY = True
         return True
 
 # parser.add_argument('-t', dest = 'type', type=int, help= 'Test type, can be empty')
@@ -192,9 +191,9 @@ class testbase(object):
 # parser.add_argument('-piv', dest = 'Pivot', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
 # parser.add_argument('-cut', dest = 'CutOff', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
 
-partType = Reverse
-size = 10000
-ceiling = 10000
+partType = Uniform
+size = 100
+ceiling = 10
 rtype = Uniform
 # pivotType = True
 pivotType = False

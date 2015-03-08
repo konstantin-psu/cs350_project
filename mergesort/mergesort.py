@@ -24,8 +24,8 @@ class msort(testbase):
         B = [None] * end
         start = time.perf_counter()
         self.begin= time.perf_counter()
-        self.mergesort(self.toSort,B, 0, end - 1)
-        # self.toSort = self.mergesort1(self.toSort)
+        # self.mergesort(self.toSort,B, 0, end - 1)
+        self.toSort = self.mergesort1(self.toSort)
         end = time.perf_counter()
         self.TOTALRTIME = end - start
         self.SPLITRTIME += self.TOTALRTIME - self.SORTHELPERRTIME

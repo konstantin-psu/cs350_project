@@ -54,6 +54,7 @@ class misort(testbase):
                 j += 1
 
             else:
+                self.BASIC += 3
                 A[k] = B[i]
                 i += 1
         end  = time.perf_counter()
