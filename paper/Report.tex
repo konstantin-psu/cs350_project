@@ -1,7 +1,7 @@
 \documentclass{article}
 %\documentclass{IEEEtran}
 \documentclass{article}
-\usepackage{fullpage} %this is used only with article document class, comment this out if switched back to IEEEtran
+\usepackage{fullpage}
 
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
@@ -69,23 +69,6 @@ Citation example\cite{ABOOK}
 We had originally planed to write our implementations in C++ and our test programs in bash and python.  \\
 choosing a low-overhead language won't necessarily produce "more accurate" results.  The absolute costs of the basic operations are irrelevant to the purpose of the project, which is to compare analytical and measured results.
 
-
-
-\begin{enumerate}
-\item Mergesort
-\begin{enumerate}
-\item Original
-\item Bottom-Up
-\item With Insertion Sort
-\item Checking If Sorted
-\end{enumerate}
-
-\end{enumerate}
-
-
-\noindent
-MERGESORT \\
-ORIGINAL \\
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{Mergesort} {input:  an array of numbers A, output: a sorted array}
@@ -100,6 +83,8 @@ ORIGINAL \\
             \State{}\Return {$merge(l, r)$}
         \EndFunction{}
     \end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{Merge}{}
             \State{$l1 \leftarrow A.length$}
@@ -129,6 +114,8 @@ ORIGINAL \\
     \end{algorithmic}
 \end{algorithm}
 
+
+
 BOTTOM-UP
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
@@ -154,7 +141,7 @@ BOTTOM-UP
                     \State{$i \leftarrow i + 1$}
                 \EndIf
             \EndFor{}
-        \EndFunction{BottomUpMerge}
+        \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
 \begin{algorithm}[h!]
@@ -198,13 +185,15 @@ BOTTOM-UP
                 \ElsIf{$B[j] < B[i]$:}
                     \State{$A[k] \leftarrow B[j]$}
                     \State{$j \leftarrow j + 1$}
-                \Else{}
+                \Else
                     \State{$A[k] \leftarrow B[i]$}
                     \State{$i \leftarrow i + 1$}
-            \EndFor{}
+                \EndIf
+            \EndFor
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
+
 
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
@@ -222,6 +211,7 @@ BOTTOM-UP
     \end{algorithmic}
 \end{algorithm}
 
+
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{mergesort}{(self, A, B, start, end):}
@@ -238,7 +228,6 @@ BOTTOM-UP
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
-
 
 
 
