@@ -7,6 +7,9 @@
 \usepackage{pgfplots}
 \usepackage{adjustbox}
 \usepackage{url}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
 
 \usepackage{listings}
 \usepackage{color}
@@ -56,14 +59,145 @@
 \section{Introduction}\label{sec:intro}
 Citation example\cite{ABOOK}
 
+
 \pagebreak
 \section{Implementation}\label{sec:Implementation}
+We had originally planed to write our implementations in C++ and our test programs in bash and python.  \\
+choosing a low-overhead language won't necessarily produce "more accurate" results.  The absolute costs of the basic operations are irrelevant to the purpose of the project, which is to compare analytical and measured results.
+
+
 \begin{enumerate}
-\item decided to focus on quicksort, mergesort, and heapsort and improvements associated with those algorithms
-\item changing implementation language choice from C/C++ to python
+\item Quicksort
+
 \begin{enumerate}
-\item professor's suggestion in feedback from project proposal
+\item Original
+\item 3-Way Partition
+\item Dual-Pivot
+\item Lomuto (in-place)
+\item Hoare (in-place)
+\item Dual-Pivot (in-place)
 \end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{Mergesort} {input:  an array of numbers A, output: a sorted array}
+            \If {$len(A) \ge 1$} %\\
+                \State{} \Return {A} // because it is sorted
+            \EndIf
+            \State{$start \leftarrow$ 0}
+            \State{$end \leftarrow len(A) - 1$}
+            \State{$middle \leftarrow \cfrac{start + (end - start)}{2}$}
+            \State{$l \leftarrow mergesort(A[start \to (middle + 1)])$}
+            \State{$r \leftarrow mergesort(A[(middle + 1) \to (end + 1)])$}
+            \State{}\Return {$merge(l, r)$}
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{enumerate}
+\item Mergesort
+\begin{enumerate}
+\item Original
+\item Bottom-Up
+\item With Insertion Sort
+\item Checking If Sorted
+\end{enumerate}
+
+\end{enumerate}
+
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{QuickSortThreeWay} {input:  an array of numbers $A$, output: a sorted array}
+            \State{$pivot = get_pivot()$}
+            \State{$less=[]$}  //To store all values less than the pivot
+            \State{$greater=[]$}  //To store all values greater than the pivot
+            \State{$equal=[]$}    //Store all values equal to the pivot
+            \For{$x$ in $A$}
+                \If{$x < pivot$}
+                    \State{$less.append(x)$}
+                \ElsIf{$x > pivot$}
+                    \State{$greater.append(x)$}
+                \Else{ $x == pivot$}
+                    \State{$equal.append(x)$}
+                \EndIf
+            \EndFor{}  
+            \State{$less = QuickSortThreeWay(less)$}
+            \State{$greater = QuickSortThreeWay(greater)$}
+            \State{} \Return{$concatenate(less, equal, greater)$}
+ 
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{QuickSortDualPivot} {input:  an array of numbers $A$, output: a sorted array}
+            \State{$pivot1 = get_pivot()$}
+            \State{$pivot2 = get_pivot()$}
+            \State{$less=[]$}  //To store all values less than the pivot
+            \State{$greater=[]$}  //To store all values greater than the pivot
+            \State{$equal=[]$}    //Store all values equal to the pivot
+            \For{$x$ in $A$}
+                \If{$x < pivot$}
+                    \State{$less.append(x)$}
+                \ElsIf{$x > pivot$}
+                    \State{$greater.append(x)$}
+                \Else{ $x == pivot$}
+                    \State{$equal.append(x)$}
+                \EndIf
+            \EndFor{}  
+            \State{$less = QuickSortThreeWay(less)$}
+            \State{$greater = QuickSortThreeWay(greater)$}
+            \State{} \Return{$concatenate(less, equal, greater)$}
+ 
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{QuickSort} {input:  an array of numbers A, output: a sorted array}
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{QuickSort} {input:  an array of numbers A, output: a sorted array}
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+
+\begin{enumerate}
+\item heapsort
+
+\begin{enumerate}
+\item Original 
+\item Bottom-up
+\item Smoothsort\\
+Since heapsort uses binary trees, it is structured to have the largest element on the leftmost side of the array.  To mo
+heap sort structures the max-heap to have the largest element of the heap on the leftmost side of the array.
+\item Skewsort
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+\begin{enumerate}
+\item changing implementation language choice from C/C++ to python
 \item creating randomized testing data and issues associated
 \begin{enumerate}
 \item space for original and improved versions of the implementations
@@ -71,17 +205,13 @@ Citation example\cite{ABOOK}
 \end{enumerate}
 \end{enumerate}
 
-\pagebreak
+
 \section{Testing}\label{sec:testing}
 
 \textbf{Testing: conclusions}
 
-
-\pagebreak
 \section{General Conclusion}
 
-
-\pagebreak
 \noindent
 From the rubric:\\
 \textbf{Can understand and implement standard algorithms}\\
