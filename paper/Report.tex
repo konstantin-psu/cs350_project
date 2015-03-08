@@ -1,4 +1,8 @@
 \documentclass{article}
+%\documentclass{IEEEtran}
+\documentclass{article}
+\usepackage{fullpage} %this is used only with article document class, comment this out if switched back to IEEEtran
+
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
 \usepackage{tikz}
@@ -79,6 +83,7 @@ choosing a low-overhead language won't necessarily produce "more accurate" resul
 \end{enumerate}
 
 
+\noindent
 MERGESORT \\
 ORIGINAL \\
 \begin{algorithm}[h!]
@@ -135,27 +140,30 @@ BOTTOM-UP
             \For{$k$ in $start$ to $end + 1$:}
                 \If{$i > middle$:}
                     $A[k] \leftarrow B[j]$
-                    \State{$j += 1$}
+                    \State{$j \leftarrow j + 1$}
                 
                 \ElsIf{$j > end$:}
                     \State{$A[k] \leftarrow B[i]$}
-                    \State{$i += 1$}
+                    \State{$i \leftarrow i + 1$}
     
                 \ElsIf{$B[j] < B[i]$:}
                     \State{$A[k] \leftarrow B[j]$}
-                    \State{$j += 1$}
+                    \State{$j \leftarrow j + 1$}
                 \Else{}
                     \State{$A[k] \leftarrow B[i]$}
                     \State{$i \leftarrow i + 1$}
                 \EndIf
-        \EndFunction{}
+            \EndFor{}
+        \EndFunction{BottomUpMerge}
     \end{algorithmic}
+\end{algorithm}
+\begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{BottomUpSort}{input: an array of numbers, $A$; output: a sorted array}
             \State{$length \leftarrow length(A)$}
             \State{$B$ is an empty array of size $length$}
-            \State{size \leftarrow 1}
-            \While{$size < length:$}
+            \State{$size \leftarrow 1$}
+            \While{$size < length$:}
                 \State{$start \leftarrow 0$}
                 \While{$start < (length - size):$}
                     \State{BottomUpMerge($A, B, $}
@@ -170,6 +178,67 @@ BOTTOM-UP
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
+
+
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{Merge}{array A, array B, int, int, int}
+            \State{$B \leftarrow copy of A$}
+            \State{$i \leftarrow start$}
+            \State{$j \leftarrow middle + 1$}
+            
+            \For{$k$ in $start$ to $end + 1$:}
+                \If{$i > middle$:}
+                    \State{$A[k] \leftarrow B[j]$}
+                    \State{$j \leftarrow j + 1$}
+                \ElsIf{$j > end$:}
+                    \State{$A[k] \leftarrow B[i]$}
+                    \State{$i \leftarrow i + 1$}
+                \ElsIf{$B[j] < B[i]$:}
+                    \State{$A[k] \leftarrow B[j]$}
+                    \State{$j \leftarrow j + 1$}
+                \Else{}
+                    \State{$A[k] \leftarrow B[i]$}
+                    \State{$i \leftarrow i + 1$}
+            \EndFor{}
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{insertionsort}{input: array, A}
+            \For{$i$ in $1$ to $length(list)$:}
+                \State{$curr \leftarrow list[i]$}
+                \State{$position \leftarrow i$}
+                \While{$(position > 0)$ and $(list[position - 1] > curr)$:}
+                    \State{$list[position] \leftarrow list[position - 1]$}
+                    \State{$position \leftarrow position - 1$}
+                \EndWhile
+            \EndFor{}
+            \State{$list[position] \leftarrow curr$}
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[h!]
+    \begin{algorithmic}[1]
+        \Function{mergesort}{(self, A, B, start, end):}
+            \If{$end \leq start$:}
+                \State{}\Return{}
+            \EndIf
+            \If{$end \leq start + cutoff - 1$}
+                \State{insertionsort($A[start:end]$)}
+            \EndIf
+            \State{$middle \leftarrow \frac{start + (end - start)}{2}$}
+            \State{$mergesort(A, B, start, middle)$}
+            \State{$mergesort(A, B, middle + 1, end)$}
+            \State{$merge(A, B, start, middle, end)$}
+        \EndFunction{}
+    \end{algorithmic}
+\end{algorithm}
+
 
 
 
@@ -196,6 +265,9 @@ BOTTOM-UP
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
+
+
+
 
 
 \begin{algorithm}[h!]
@@ -230,6 +302,10 @@ BOTTOM-UP
     \end{algorithmic}
 \end{algorithm}
 
+
+
+
+
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
         \Function{QuickSortInPlace} {input:  an array of numbers A, f - location of first element, l - location of last element, output: a sorted array}
@@ -242,6 +318,10 @@ BOTTOM-UP
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
+
+
+
+
 
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
@@ -260,6 +340,11 @@ BOTTOM-UP
         \EndFunction{}
     \end{algorithmic}
 \end{algorithm}
+
+
+
+
+
 
 \begin{algorithm}[h!]
     \begin{algorithmic}[1]
@@ -294,6 +379,10 @@ BOTTOM-UP
 
 
 
+
+
+
+\pagebreak
 \begin{enumerate}
 \item changing implementation language choice from C/C++ to python
 \item creating randomized testing data and issues associated
@@ -345,6 +434,9 @@ Conclusions Presented \\
 \pagebreak
 \bibliographystyle{ieeetr}
 \bibliography{bibliography}
+
+
+
 \end{document}
 
 
