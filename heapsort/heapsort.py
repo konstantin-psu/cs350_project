@@ -22,7 +22,7 @@ class sort(testbase):
         end = time.perf_counter()
         self.TOTALRTIME = end - start
         self.SPLITRTIME += self.TOTALRTIME - self.SORTHELPERRTIME
-        pprint(self.toSort)
+        # pprint(self.toSort)
         self.setinfo()
         self.dump()
 
