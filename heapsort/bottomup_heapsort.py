@@ -33,36 +33,35 @@ class buhsort(testbase):
 
     def swim(self, k, A):
         while True:
-            # zero-based indexing
-            j = int((k - 1) / 2)
-            if (j < 0) or (A[j] >= A[k]):
+            parent = int((k - 1) / 2)
+            if (parent < 0) or (A[parent] >= A[k]):
                 break
-            A[k], A[j] = A[j], A[k]
-            k = j
+            A[k], A[parent] = A[parent], A[k]
+            k = parent
+
 
 
     def heapify_swim(self, A, N):
         for i in range(1, N):
             self.swim(i, A)
 
+
     def heapsort(self, A):
         count = len(A)
         self.heapify_swim(A, count)
-
         for hi in range(count - 1, 0, -1):
             A[0], A[hi] = A[hi], A[0]
-            self.sink(A, 0, hi - 1)
-
-
-    def sink(self, A, k, high):
-        while True:
-            j = 2 * k + 1
-            if j < high and (A[j] < A[j+1]):
-                j += 1
-            if j > high or not (A[k] < A[j]):
-                break
-            A[k], A[j] = A[j], A[k]
-            k = j
+            k = 0
+            end = hi - 1
+            while True:
+                leftchild = 2 * k + 1
+                rightchild = leftchild + 1
+                if leftchild < end and (A[leftchild] < A[rightchild]):
+                    leftchild += 1
+                if leftchild > end or not (A[k] < A[leftchild]):
+                    break
+                A[k], A[leftchild] = A[leftchild], A[k]
+                k = leftchild
 
 
 def run():
