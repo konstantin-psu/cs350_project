@@ -13,7 +13,7 @@ class buhsort(testbase):
 
     def __init__(self, size, ceiling, asInt, rtype):
         self.size = size
-        self.gen  = randomizer.generator(maximum=ceiling,asInt=asInt)
+        self.gen  = randomizer.generator(maximum=ceiling, asInt=asInt)
         self.toSort = self.gen.gen(rtype,size)
         self.CEILING = ceiling
         self.INT = asInt
@@ -29,60 +29,41 @@ class buhsort(testbase):
         self.setinfo()
         self.dump()
 
+
+    def swim(self, k, A):
+        while True:
+            # zero-based indexing
+            j = int((k - 1) / 2)
+            if (j < 0) or (A[j] >= A[k]):
+                break
+            A[k], A[j] = A[j], A[k]
+            k = j
+
+
+
+    def heapify_swim(self, A, N):
+        for i in range(1, N):
+            self.swim(i, A)
+
+
     def heapsort(self, A):
-        self.SPLITS +=1
         count = len(A)
-        self.heapify(A, count)
+        self.heapify_swim(A, count)
 
-        end = count - 1
-        while end > 0:
-            #swap A[end] and A[0]
-            A[end], A[0] = A[0], A[end]
-
-            #reduce heap size by 1
-            end -= 1
-
-            self.siftDown(A, 0, end)
+        for hi in range(count - 1, 0, -1):
+            A[0], A[hi] = A[hi], A[0]
+            self.sink(A, 0, hi - 1)
 
 
-    #common in-place heap construction routine
-    def heapify(self, A, count):
-        start = int(math.floor((count - 1) / 2))
-        while start >= 0:
-            self.BASIC += 1
-            self.siftDown(A, start, count - 1)
-            start -= 1
-
-
-
-    def leafSearch(self, A, i, end):
-        j = i
-        while (2 * j) >= end:
-            self.BASIC += 1
-            if (2 * j + 1) < end and (A[2 * j + 1] > A[2*j]):
-                self.BASIC += 2
-                j = 2 * j + 1
-            else:
-                self.BASIC += 2
-                j = 2 * j
-        return j
-
-
-    def siftDown(self, A, i, end):
-        j = self.leafSearch(A, end, i)
-
-        while A[i] > A[j]:
-            self.BASIC += 1
-            parent = int(math.floor((j - 1)/2))
-            j = parent
-        x = A[j]
-        A[j] = A[i]
-        while j > i:
-            self.BASIC += 1
-            x, A[parent] = A[parent], x
-            j = parent
-
-
+    def sink(self, A, k, high):
+        while True:
+            j = 2 * k + 1
+            if j < high and (A[j] < A[j+1]):
+                j += 1
+            if j > high or not (A[k] < A[j]):
+                break
+            A[k], A[j] = A[j], A[k]
+            k = j
 
 
 def run():
