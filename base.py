@@ -59,7 +59,7 @@ class testbase(object):
     cutoff=None
     name = ""
     CEILING = 0
-    INT = None
+    INT = args.asInt
     PARTITIONTYPE = None
     toSort = None  #placeholder for array that will be sorted
     REPETITIONS = 5
@@ -70,8 +70,10 @@ class testbase(object):
     sorted = 2
     reverse = 3
     identical = 4
-    filename = args.filename + "_results.json"
-    # filename = "_results.json"
+    if (args.filename is not None):
+        filename = args.filename + "_results.json"
+    else:
+        filename = "_results.json"
     s25 = 5
     s85 = 6
 
@@ -192,7 +194,7 @@ class testbase(object):
 # parser.add_argument('-cut', dest = 'CutOff', type=int, help='This is valuable only for quick sort, if 1 - random, else if 0 - first/last')
 
 partType = Uniform
-size = 100
+size = 1000
 ceiling = 10
 rtype = Uniform
 # pivotType = True

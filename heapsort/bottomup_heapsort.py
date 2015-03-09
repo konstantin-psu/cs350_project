@@ -10,6 +10,7 @@ from base import  *
 class buhsort(testbase):
     name="bottomup_heapsort "
     bottomup = 0
+    filename = "bottomUpHeapsort_results.json"
 
     def __init__(self, size, ceiling, asInt, rtype):
         self.size = size
@@ -41,9 +42,36 @@ class buhsort(testbase):
 
 
 
+<<<<<<< HEAD
     def heapify_swim(self, A, N):
         for i in range(1, N):
             self.swim(i, A)
+=======
+    def leafSearch(self, A, i, end):
+        j = i
+        while (2 * j) >= end:
+            if (2 * j + 1) < end and (A[2 * j + 1] > A[2*j]):
+                self.BASIC += 2
+                j = 2 * j + 1
+            else:
+                self.BASIC += 2
+                j = 2 * j
+        return j
+
+    def siftDown(self, A, i, end):
+        j = self.leafSearch(A, end, i)
+
+        while A[i] > A[j]:
+            self.BASIC += 1
+            parent = int(math.floor((j - 1)/2))
+            j = parent
+        x = A[j]
+        A[j] = A[i]
+        while j > i:
+            self.BASIC += 1
+            x, A[parent] = A[parent], x
+            j = parent
+>>>>>>> dad479a22aa9abedb238bf235cb6aa7675d97d5a
 
 
     def heapsort(self, A):
