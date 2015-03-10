@@ -77,7 +77,7 @@ class qsort(testbase):
         super().setinfo()
         pstr = "first/last"
         if (self.pivotType):
-            pstr = "random"
+            pstr = "two thirds"
         self.info['pivot type']=pstr
 
 
@@ -123,7 +123,6 @@ class qsort(testbase):
         more = []
         lr = len(arr)
         if lr <= 1:
-            self.BASIC += 1
             return arr
         else:
             start = time.perf_counter()

@@ -160,7 +160,8 @@ class testbase(object):
 
     def pivot(self, arr, first, l, r):
         if (self.pivotType):
-            p =self.generator.randomPivot(min = l, max = r)
+            p = int(r/3*2)
+            # p =self.generator.randomPivot(min = l, max = r)
             return arr[p], p
         if (first):
             return arr[l], l
@@ -195,10 +196,10 @@ class testbase(object):
 
 partType = Uniform
 size = 1000
-ceiling = 10
+ceiling =20000
 rtype = Uniform
-# pivotType = True
-pivotType = False
+pivotType = True
+# pivotType = False
 isInt = True
 cutoff=10
 if args.inputSize is not None:

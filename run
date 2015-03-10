@@ -28,10 +28,9 @@ cd $SORTLOC
 #===========================Variables=========================================
 
 SCRIPTNAME=$(<$ALGORITHMS)
-MAX=20000000
-#ceiling=40000000 #maximum value in the array
+MAX=1000000
 ceiling=$(($MAX*2)) #maximum value in the array
-t=0 #sort type, in my case I have several sorts in one file
+t=1 #sort type, in my case I have several sorts in one file
 tm=2 #maximum amount of sorts, set to one if you have only one sort per file, it is safe to crank it up to 3 for quicksort
 pt=0 #partition type, in total we have 7 of them defined in base.py
 ptm=7 #partition types maximum
@@ -97,43 +96,26 @@ do
     echo "$algorithm"
 done
 
-for algorithm in $SCRIPTNAME #for all files:
-do
-	f=`basename $algorithm .py`
+f=`basename $algorithm .py`
     while [ $pt -lt $ptm ] #for all partition types
     do
-        echo "partitions"
-        while [ $t -lt $tm ] #for all sort types
-        do
             echo "types"
             while [ $currSize -lt $MAX ] #for sizes from currSize to MAX
             do
-                echo "sizes"
-                while [ $currExperiment -lt $experiments ] #try number of times = experiments
-                do
-                    echo "experiments"
                     info
                     echo $Color5
                     echo "python3 $algorithm -t $t -s $currSize -pt $pt -c $ceiling -i $asInt -piv $pivot -cut $cutoff -f $f"
                     echo $Color_OFF
                     python3 $algorithm -t $t -s $currSize -pt $pt -c $ceiling -i $asInt -piv $pivot -cut $cutoff -f $f
-                    currExperiment=$(($currExperiment+1))
-                done
-                currExperiment=0
-                if [ $currSize -ge 1000000 ]; then
-                    currSize=$(($currSize+1000000))
-                else
-                    currSize=$(($currSize*10))
-                fi
+		    if [ $currSize -ge 1000000 ]; then
+			    currSize=$(($currSize+1000000))
+		    else
+			    currSize=$(($currSize*10))
+		    fi
             done
             currSize=1
-            t=$(($t+1))
-        done
-        t=0
-        pt=$(($pt+1))
+            pt=$(($pt+1))
     done
-    pt=0
-done
 
  mv *.json $RESULTSDIR
  echo "results for moved to $RESULTSDIR"
