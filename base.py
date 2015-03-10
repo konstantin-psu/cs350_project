@@ -160,8 +160,8 @@ class testbase(object):
 
     def pivot(self, arr, first, l, r):
         if (self.pivotType):
-            p = int(r/3*2)
-            # p =self.generator.randomPivot(min = l, max = r)
+            # p = int(r/3*2)
+            p =self.generator.randomPivot(min = l, max = r)
             return arr[p], p
         if (first):
             return arr[l], l
