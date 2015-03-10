@@ -43,6 +43,7 @@ class qsort(testbase):
         super().__init__()
         self.pivotType = pivotType
         self.size = size
+        self.filename = str(rtype) + self.filename
         self.TYPE = rtype
         self.INT = asInt
         self.partType = partType

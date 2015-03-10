@@ -7,6 +7,7 @@ import argparse
 import re
 from pprint import  pprint
 import numpy
+import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser(description='To get test folder path')
 parser.add_argument('-t', dest = 'testPath', type=str, help= 'Test folder path', required=True)
@@ -44,26 +45,32 @@ ints = [
       'total time'
 ]
 for i in files:
-    print(args.testPath+i)
+    # print(args.testPath+i)
     with open(args.testPath+i, 'r') as input:
         flag = False
         sub = {}
+        subsub = ""
         content = input.readlines()
         for i in content:
             if i.strip() == s:
+                subsub += i.strip()
                 flag = True
                 continue
             elif i.strip() == e:
                 # Dump
+                subsub += i.strip()
                 flag = False
-                for i in sub:
-                    if i in ints:
-                        if re.match(r'null', sub[i], re.IGNORECASE):
-                            sub[i]=None
-                            continue
-                        sub[i]=numpy.float_(sub[i])
-                    elif i in bools:
-                        sub[i]=bool(sub[i])
+                jj = json.loads(subsub)
+                subsub = ""
+                # for i in sub:
+                #     if i in ints:
+                #         if re.match(r'null', sub[i], re.IGNORECASE):
+                #             sub[i]=None
+                #             continue
+                #         sub[i]=numpy.float_(sub[i])
+                #     elif i in bools:
+                #         sub[i]=bool(sub[i])
+                sub = jj
                 try:
                     info[sub['name']]
                 except KeyError:
@@ -84,11 +91,28 @@ for i in files:
                 sub = {}
                 continue
             if flag:
-                m=re.sub(r',','',i.strip(),re.IGNORECASE)
-                m=re.sub(r'"','',m,re.IGNORECASE)
-                a=m.split(':')
-                sub[a[0]]=a[1]
-        pprint(info)
+                subsub += i.strip()
+                # m=re.sub(r',','',i.strip(),re.IGNORECASE)
+                # m=re.sub(r'"','',m,re.IGNORECASE)
+                # a=m.split(':')
+                # sub[a[0]]=a[1]
+        # pprint(info)
+
+xaxys = []
+yaxis = []
+for i in info:
+    # if i == "mergesort":
+        sort = info[i]
+        for j in sort:
+            # distr=sort[j]
+            print(j)
+            # pprint(distr)
+            # for k in distr:
+            #     print(str(k)+ " : "+str(len(distr[k])))
+            # break
+        # break
+
+
 #Expect only json files to be in test dir
 
 

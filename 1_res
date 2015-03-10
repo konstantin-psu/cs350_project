@@ -1,0 +1,976 @@
+/home/konstantin/cs350_project/results
+mergesort/
+1
+Working ...
+mergesort.py
+partitions
+types
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        1
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 1 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        10
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 10 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        100
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 100 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        1000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 1000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        10000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 10000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        100000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 100000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        1000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 1000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        2000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 2000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        3000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 3000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        4000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 4000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        5000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 5000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        6000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 6000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        7000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 7000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        8000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 8000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        9000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 9000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        10000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 10000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        11000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 11000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        12000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 12000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        13000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 13000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        14000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 14000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        15000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 15000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        16000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 16000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        17000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 17000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+./run: line 99:  8680 Killed                  python3 $algorithm -t $t -s $currSize -pt $pt -c $ceiling -i $asInt -piv $pivot -cut $cutoff -f $f
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        18000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 18000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  0
+partition max   7
+currSize        19000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 19000000 -pt 0 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+partitions
+types
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        1
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 1 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        10
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 10 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        100
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 100 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        1000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 1000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        10000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 10000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        100000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 100000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        1000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 1000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        2000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 2000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        3000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 3000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        4000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 4000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        5000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 5000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        6000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 6000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        7000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 7000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        8000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 8000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        9000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 9000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        10000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 10000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
+sizes
+experiments
+
+======================================================
+[32m
+Next test: 
+[91m
+type            0
+type max        1
+partition type  1
+partition max   7
+currSize        11000000
+currExperiment  0
+pivot           1
+asInt           1
+cutoff          10
+cutoffMax       1000000
+[97m
+Done
+[0m
+[35m
+python3 mergesort.py -t 0 -s 11000000 -pt 1 -c 1000 -i 1 -piv 1 -cut 10 -f mergesort
+[0m
