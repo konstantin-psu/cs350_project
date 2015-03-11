@@ -34,6 +34,7 @@ class buhsort(testbase):
     def swim(self, k, A):
         while True:
             parent = int((k - 1) / 2)
+            self.BASIC += 1
             if (parent < 0) or (A[parent] >= A[k]):
                 break
             A[k], A[parent] = A[parent], A[k]
@@ -43,6 +44,8 @@ class buhsort(testbase):
 
     def heapify_swim(self, A, N):
         for i in range(1, N):
+            self.BASIC += 1
+            self.SPLITS +=1 
             self.swim(i, A)
 
 
@@ -54,6 +57,7 @@ class buhsort(testbase):
             k = 0
             end = hi - 1
             while True:
+                self.BASIC += 1
                 leftchild = 2 * k + 1
                 rightchild = leftchild + 1
                 if leftchild < end and (A[leftchild] < A[rightchild]):
