@@ -1,0 +1,58 @@
+\documentclass{standalone}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage{adjustbox}
+\usepackage{url}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\definecolor{bblue}{HTML}{4F81BD}
+\definecolor{rred}{HTML}{C0504D}
+\definecolor{ggreen}{HTML}{9BBB59}
+\definecolor{ppurple}{HTML}{9F4C7C}
+\pgfplotsset{compat=newest}
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+height=240pt,
+width=240pt,
+grid=major,
+xlabel={Set size},
+ylabel={Basic operations},
+ytick align=inside,
+%yticklabel style={/pgf/number format/fixed},
+%precision=1,
+scaled ticks=false,
+tick label style={/pgf/number format/.cd},
+   legend style={at={(0.5,-0.20)},
+      anchor=north,legend columns=1},
+ %legend style={
+ %at={(0,0)},
+ %anchor=north east},
+ %scaled ticks=base 10:3,
+ %yticklabel style={
+ %           /pgf/number format/.cd,
+ %           sci,
+ %           sci generic={mantissa sep=\times,exponent={10^{#1}}} 
+ %           },
+ ]
+%\addplot[blue,ultra thick,smooth,mark=none] table{merge_gauss.dat};
+\addplot[blue,ultra thick,smooth,mark=none] table{basic.dat};
+\addplot[rred,ultra thick,smooth,mark=none, domain=0:20000000] (\x,{x*log2(\x)});
+\addlegendentry{mergesort gauss}
+\addlegendentry{$n \times log_2(n)$}
+\end{axis}
+\end{tikzpicture}
+\end{document}
+
