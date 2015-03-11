@@ -1120,15 +1120,3 @@
     "total split time":7.711699436185881e-05,
     "total time":7.711699436185881e-05
 }
-{
-    "basic operations":25,
-    "ceiling":40000000,
-    "correctness":true,
-    "cutoff":null,
-    "is integer":true,
-    "name":"heapsort",
-    "number of duplicates":0,
-    "partition operations":1,
-    "partition type":"s25",
-    "size":10,
- 

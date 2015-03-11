@@ -105,7 +105,7 @@ for i in files:
         # pprint(info)
 
 def dump(info, name, type):
-    with open(name+type+"DualPivotRandom.dat", 'a') as out:
+    with open(name+type+"BottomUpheapSort.dat", 'a') as out:
         out.write("x 0fx\n")
         out.write(json.dumps(info, sort_keys = True, indent=0, separators=(' ', ' ')))
         out.write("\n")
