@@ -1,4 +1,5 @@
 import random, cProfile
+import math
 from base import *
 
 
@@ -16,7 +17,7 @@ class sort(testbase):
         self.PARTITIONTYPE = self.ptypes[rtype]
         start = time.perf_counter()
         self.begin= time.perf_counter()
-        pprint(self.toSort)
+        #pprint(self.toSort)
         self.heapsort(self.toSort)
         # self.toSort = self.mergesort1(self.toSort)
         end = time.perf_counter()
@@ -26,47 +27,63 @@ class sort(testbase):
         self.setinfo()
         self.dump()
 
-    def heapsort(self, list):
+
+
+
+
+    def heapsort(self, A):
         self.SPLITS += 1
-        length = len(list) - 1
-        for i in range(int((length / 2)), -1, -1):
-            self.siftDown(list, i, length)
+        count = len(A)
+        self.heapify(A, count)
 
-        # a[0] is the root and largest value.
-        # The swap moves it in front of the sorted elements
-        # the heap size is reduced by 1
-        # the swap ruined the heap property, so restore it
-        for i in range(length, 0, -1):
-            if list[0] > list[i]:
-                self.swap( list, 0, i )
-                self.siftDown( list, 0, i - 1 )
+        end = count - 1
+        while end > 0:
+            #swap A[end] and A[0]
+            A[end], A[0] = A[0], A[end]
+
+            #reduce heap size by 1
+            end -= 1
+
+            self.siftDown(A, 0, end)
 
 
-    def siftDown(self,  list, first, last ):
+    #common in-place heap construction routine
+    def heapify(self, A, count):
+        start = int(math.floor((count - 2) / 2))
+
+        while start >= 0:
+            self.siftDown(A, start, count - 1)
+            start -= 1
+
+
+
+    def siftDown(self, A, start, end):
         s = time.perf_counter()
-        largest = 2 * first + 1
-        while largest <= last:
-            if (largest < last) and (list[largest] < list[largest + 1]):
-                self.BASIC += 1
-                largest += 1
+        root = start
 
+        while root * 2 + 1 <= end:
+            child = root * 2 + 1
+            toSwap = root
 
-            if list[largest] > list[first]:
+            if A[toSwap] < A[child]:
                 self.BASIC += 1
-                self.swap(list, largest, first)
-                first = largest
-                largest = 2 * first + 1
-            else:
+                toSwap = child
+
+            #if a larger right child exists
+            if child + 1 <= end and A[toSwap] < A[child + 1]:
                 self.BASIC += 1
-                e = time.perf_counter()
-                self.SORTHELPERRTIME += e - s
+                toSwap = child + 1
+
+            if toSwap == root:
+                self.BASIC += 1
+                # the root holds the largest element
                 return
 
+            else:
+                self.BASIC += 1
+                A[root], A[toSwap] = A[toSwap], A[root]
+                root = toSwap
 
-    def swap(self, A, x, y ):
-        tmp = A[x]
-        A[x] = A[y]
-        A[y] = tmp
 
 
 def run():

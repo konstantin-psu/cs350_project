@@ -28,7 +28,7 @@ cd $SORTLOC
 #===========================Variables=========================================
 
 SCRIPTNAME=$(<$ALGORITHMS)
-MAX=100
+MAX=10001
 ceiling=1000 #maximum value in the array
 t=0 #sort type, in my case I have several sorts in one file
 tm=2 #maximum amount of sorts, set to one if you have only one sort per file, it is safe to crank it up to 3 for quicksort
