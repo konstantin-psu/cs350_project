@@ -6,12 +6,18 @@ import sys
 import argparse
 import re
 from pprint import  pprint
+from  numpy import sort
 import numpy
 import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser(description='To get test folder path')
 parser.add_argument('-t', dest = 'testPath', type=str, help= 'Test folder path', required=True)
 
+def p(a):
+    print("x 0fx")
+    for i in a:
+        print(str(i)+" "+str(a[i]))
+    print("")
 args = parser.parse_args()
 if args.testPath is None:
    sys.exit(1)
@@ -87,7 +93,7 @@ for i in files:
                     info[sub['name']][sub['partition type']][int(sub['size'])] = {}
 
                 l = len(info[sub['name']][sub['partition type']][int(sub['size'])])
-                info[sub['name']][sub['partition type']][int(sub['size'])][l] = sub
+                info[sub['name']][sub['partition type']][int(sub['size'])] = sub
                 sub = {}
                 continue
             if flag:
@@ -98,20 +104,40 @@ for i in files:
                 # sub[a[0]]=a[1]
         # pprint(info)
 
-xaxys = []
-yaxis = []
+txaxys = []
+tyaxis = []
+sxaxys = []
+syaxis = []
+ax = {}
+axs = {}
 for i in info:
     # if i == "mergesort":
-        sort = info[i]
-        for j in sort:
-            # distr=sort[j]
-            print(j)
-            # pprint(distr)
-            # for k in distr:
-            #     print(str(k)+ " : "+str(len(distr[k])))
-            # break
-        # break
-
+        ssort = info[i]
+        for j in ssort:
+            # if j == 'gauss':
+                distr=ssort[j]
+                print("=====================================================")
+                print(j)
+                for k in distr:
+                    ax[k]=distr[k]['total time']
+                    axs[k]=distr[k]['basic operations']
+#                     txaxys.append(k)
+#                     tyaxis.append(distr[k]['total time'])
+#                     sxaxys.append(k)
+#                     syaxis.append(distr[k]['basic operations'])
+                print("time")
+                pprint(ax)
+                print("steps")
+                pprint(axs)
+                ax.clear()
+                axs.clear()
+#
+# txaxys=sort(txaxys)
+# tyaxis=sort(syaxis)
+# plt.plot(txaxys, tyaxis, 'r--', txaxys, sort(syaxis), 'bs')
+# plt.show()
+# pprint(ax)
+# pprint(axs)
 
 #Expect only json files to be in test dir
 
