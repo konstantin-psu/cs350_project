@@ -1,0 +1,17 @@
+{
+    "basic operations" 1063113027 
+    "ceiling" 1000 
+    "correctness" true 
+    "cutoff" null 
+    "is integer" true 
+    "name" "heapsort" 
+    "number of duplicates" 18999000 
+    "partition operations" 1 
+    "partition type" "s85" 
+    "size" 19000000 
+    "stability" false 
+    "total partition" 0 
+    "total space used" 0 
+    "total split time" 805.3079219099891 
+    "total time" 805.3079219099891
+}
