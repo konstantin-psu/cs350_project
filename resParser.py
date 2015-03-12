@@ -104,6 +104,12 @@ for i in files:
                 # sub[a[0]]=a[1]
         # pprint(info)
 
+def dump(info, name, type):
+    with open(name+type+"BottomUpheapSort.dat", 'a') as out:
+        out.write("x 0fx\n")
+        out.write(json.dumps(info, sort_keys = True, indent=0, separators=(' ', ' ')))
+        out.write("\n")
+
 txaxys = []
 tyaxis = []
 sxaxys = []
@@ -125,10 +131,12 @@ for i in info:
 #                     tyaxis.append(distr[k]['total time'])
 #                     sxaxys.append(k)
 #                     syaxis.append(distr[k]['basic operations'])
-                print("time")
-                pprint(ax)
-                print("steps")
-                pprint(axs)
+#                 print("time")
+#                 pprint(ax)
+#                 print("steps")
+#                 pprint(axs)
+                dump(ax, j, "time")
+                dump(axs, j, "steps")
                 ax.clear()
                 axs.clear()
 #

@@ -152,8 +152,8 @@ class testbase(object):
 
 
     def dump(self):
-        with open(self.filename, 'a') as out:
-            out.write(json.dumps(self.info, sort_keys = True, indent=4, separators=(',', ':')))
+        with open(self.filename, 'w') as out:
+            out.write(json.dumps(self.info, sort_keys = True, indent=4, separators=(' ', ' ')))
             out.write("\n")
 
 
