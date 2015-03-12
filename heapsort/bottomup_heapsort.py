@@ -69,7 +69,7 @@ class buhsort(testbase):
 
 
 def run():
-    srt = buhsort(size=size, ceiling=ceiling, asInt=isInt, rtype=rtype)
+    srt = buhsort(size=size, ceiling=ceiling, asInt=isInt, rtype=partType)
 
 
 run()
