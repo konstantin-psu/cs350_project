@@ -1,0 +1,8 @@
+#!/bin/bash
+
+f=`ls *.json`
+
+for i in $f
+do
+    python3 resParser.py -t $i
+done

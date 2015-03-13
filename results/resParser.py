@@ -30,7 +30,7 @@ size = 1
 olist = []
 m = size*log2(size)
 logf[size] = m
-print(str(size)+" & "+ str(m))
+# print(str(size)+" & "+ str(m))
 olist.append(size)
 while size < 19000000:
     if size < 1000000:
@@ -40,7 +40,7 @@ while size < 19000000:
     m = size*log2(size)
     olist.append(size)
     logf[size] = m
-    print(str(size)+" & "+ str(m))
+    # print(str(size)+" & "+ str(m))
 
 # files=os.listdir(args.testPath)
 files = args.testPath
@@ -73,7 +73,7 @@ ints = [
 ]
 for i in files:
     # print(args.testPath+i)
-    with open(args.testPath+i, 'r') as input:
+    with open(args.testPath, 'r') as input:
         flag = False
         sub = {}
         subsub = ""
@@ -127,7 +127,8 @@ for i in files:
         # pprint(info)
 
 def dump(info, name, type):
-    with open(name+type+files, 'a') as out:
+    with open(name+type+files.split(".")[0]+".dat", 'a') as out:
+    # with open(name+type+"BottomUpheapSort.dat", 'a') as out:
         out.write("x 0fx\n")
         out.write(json.dumps(info, sort_keys = True, indent=0, separators=(' ', ' ')))
         out.write("\n")
@@ -158,16 +159,31 @@ for i in info:
 #                 pprint(ax)
 #                 print("steps")
 #                 pprint(axs)
-                dump(ax, j, "time")
-                dump(axs, j, "steps")
+#                 dump(ax, j, "time")
+#                 dump(axs, j, "steps")
+#                 print(j+ ' steps ')
+
+                superRes[j] = []
+                for i in olist:
+                    try:
+                        a = [axs[i], logf[i]]
+                    except KeyError:
+                        continue
+                    if (i != 1):
+                        b = (axs[i] / logf[i])
+                    else:
+                        b = 0
+                    superRes[j].append(b)
+
+                    # print(str(i)+" "+str(std(a))+ "   "+str(b))
                 ax.clear()
                 axs.clear()
 
 # print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-# print(files)
-# for i in superRes:
-#     # print("Standard deviation "+i + " "+str(std(superRes[i])))
-#     print(i + " "+str(numpy.average(superRes[i])))
+print(files.split(".")[0])
+for i in superRes:
+    # print("Standard deviation "+i + " "+str(std(superRes[i])))
+    print(i + " "+str(numpy.average(superRes[i])))
 #
 # txaxys=sort(txaxys)
 # tyaxis=sort(syaxis)
